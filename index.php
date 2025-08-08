@@ -80,7 +80,7 @@
               Take the next step in delivery with NEXDROP — where speed meets reliability.</p>
 
             <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-              <input type="text" class="form-control" placeholder="Track Your Courier Instantly">
+              <input type="text" class="form-control" placeholder="Place order ID">
               <button type="submit" class="btn btn-primary">Track</button>
             </form>
 
@@ -170,7 +170,7 @@
             <p class="fst-italic">
               We make sure every package is treated with the highest level of attention. Whether it’s fragile electronics, important documents, or sentimental gifts, our delivery team ensures safe transport from start to finish.
             </p>
-             <ul>
+            <ul>
               <li><i class="bi bi-check"></i><span>Special handling for fragile or high-value items. </span></li>
               <li><i class="bi bi-check"></i> <span>Use of quality packaging materials.</span></li>
               <li><i class="bi bi-check"></i> <span>Clear “Fragile” and “Handle with Care” labeling.</span></li>
@@ -187,7 +187,7 @@
             <h3>Secure Online Payment</h3>
             <p>Pay for your courier service quickly and securely. We support multiple payment options and use advanced encryption to protect your transactions and personal details</p>
             <ul>
-           <li><i class="bi bi-check"></i> <span>Multiple payment methods: debit/credit cards, mobile wallets, and bank transfers.</span></li>
+              <li><i class="bi bi-check"></i> <span>Multiple payment methods: debit/credit cards, mobile wallets, and bank transfers.</span></li>
               <li><i class="bi bi-check"></i><span> Instant payment confirmation.</span></li>
               <li><i class="bi bi-check"></i> <span>Transparent pricing with no hidden charges.</span>.</li>
             </ul>
@@ -204,7 +204,7 @@
               From local neighborhoods to global destinations, we make sure your package gets where it needs to be. Our international partnerships ensure fast, secure, and reliable cross-border shipping.
             </p>
             <ul>
-               <li><i class="bi bi-check"></i> <span> Nationwide delivery coverage..</span></li>
+              <li><i class="bi bi-check"></i> <span> Nationwide delivery coverage..</span></li>
               <li><i class="bi bi-check"></i><span> Shipping to major cities worldwide.</span></li>
               <li><i class="bi bi-check"></i> <span>Partnerships with trusted global courier networks.</span>.</li>
               <li><i class="bi bi-check"></i> <span>Customs guidance for international packages.</span>.</li>
@@ -216,35 +216,211 @@
 
     </section>
     <!-- /Features Section -->
-    <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
-      <div class="container position-relative">
-        <h1>Starter Page</h1>
-        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
-        <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Starter Page</li>
-          </ol>
-        </nav>
-      </div>
-    </div><!-- End Page Title -->
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
+
+    <!-- Testimonials Section -->
+    <!-- Section Title -->
+    <div class="container section-title mt-5" data-aos="fade-up">
+      <span>Testimonials</span>
+      <h2>Testimonials</h2>
+      <p>Here some of our satisfied customer are sharing their experience with nexdrop courier.</p>
+    </div><!-- End Section Title -->
+
+
+    <section id="testimonials" class="testimonials section dark-background">
+
+      <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/1.jpg" class="testimonial-img" alt="">
+                <h3>Aziz Hayder </h3>
+                <h4>Student </h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"Fast, reliable, and stress-free! My package arrived earlier than expected, and the tracking updates kept me informed every step of the way."</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/2.jpg" class="testimonial-img" alt="">
+                <h3>Omit Hasan</h3>
+                <h4>Designer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"I loved how carefully my fragile items were handled. Everything arrived in perfect condition. Definitely my go-to courier from now on!"</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/3.jpg" class="testimonial-img" alt="">
+                <h3>Hares Islam</h3>
+                <h4>Store Owner</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"The online payment was smooth and secure, and the delivery team was polite and professional. Couldn't ask for better service."</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/4.jpg" class="testimonial-img" alt="">
+                <h3>Ridhika Nasir</h3>
+                <h4>Freelancer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"Sent a package overseas and was amazed at how fast it reached! Great communication and excellent customer care."</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/5.jpg" class="testimonial-img" alt="">
+                <h3>Osman Goni</h3>
+                <h4>Entrepreneur</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"From pickup to delivery, the whole process was seamless. Real-time tracking gave me total peace of mind."</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- /Testimonials Section -->
+
+
+  <!-- Faq Section -->
+    <section id="faq" class="faq section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <span>Starter Section<br></span>
-        <h2>Starter Section</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <span>Frequently Asked Questions</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>You can find your queries about Nexdrop here.  </p>
       </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up">
-        <p>Use this page as a starter for your own custom pages.</p>
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-10">
+
+            <div class="faq-container">
+              <!-- faq 1 -->
+              <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3> How can I track my package in real time?</h3>
+                <div class="faq-content">
+                  <p>Tracking your package with NEXDROP is quick and simple. Just enter your unique tracking ID on our website or mobile app, and you’ll see live updates of your shipment’s journey — from the moment it’s picked up to the time it’s delivered. You can also enable notifications to get alerts about your package’s current location and estimated delivery time.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+                          <!-- faq 2 -->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Do you offer international delivery?</h3>
+                <div class="faq-content">
+                  <p>Yes! NEXDROP Courier provides worldwide delivery to over 200 destinations, ensuring your package reaches anywhere safely and on time.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+                          <!-- faq 3 -->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3> Is online payment safe with NEXDROP?</h3>
+                <div class="faq-content">
+                  <p>Absolutely. Your security is our top priority. We use advanced SSL encryption and trusted payment gateways to ensure your personal and financial details remain confidential. Whether you choose credit card, debit card, or mobile payment options, every transaction is processed in a secure environment for your peace of mind.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+              <!-- faq 4 -->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>What should I do if my package is delayed?</h3>
+                <div class="faq-content">
+                  <p>Although we work hard to ensure timely delivery, unforeseen issues like weather conditions, customs checks, or technical delays can sometimes occur. If your package is delayed, you can use our real-time tracking system to check the latest status. You can also contact our dedicated 24/7 customer support team, who will investigate and provide you with the most up-to-date information.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+              <!-- faq 5 -->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3> How does NEXDROP ensure packages are handled with care?</h3>
+                <div class="faq-content">
+                  <p>We believe every delivery is important, so our team follows strict handling protocols. From safe loading practices to using protective packaging, we make sure your items are shielded from damage. Fragile shipments are given special attention and clearly marked to ensure careful handling at every stage of the journey.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
 
-    </section><!-- /Starter Section Section -->
+    </section><!-- /Faq Section -->
+
+    
+
+   
 
   </main>
 
@@ -254,9 +430,9 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Logis</span>
+            <span class="sitename">Nexdrop Courier</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p>NEXDROP Courier is your trusted partner for fast, secure, and reliable deliveries across the globe. We combine real-time tracking, secure online payments, and careful handling to ensure every package arrives safely and on time. With worldwide reach and customer-first service, we make every delivery the next step in convenience.</p>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
@@ -279,34 +455,32 @@
         <div class="col-lg-2 col-6 footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">Parcel Delivery</a></li>
+            <li><a href="#">Courier Delivery</a></li>
+            <li><a href="#">Tracking</a></li>
+            <li><a href="#">Online Payment</a></li>
           </ul>
         </div>
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
+          <p>Gulshan Pink City Shopping Complex</p>
+          <p> 15 Gulshan Ave, Dhaka 1212</p>
+          <p>Bangladesh</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+880-1715-052430</span></p>
+          <p><strong>Email:</strong> <span>info@nexdrop.com</span></p>
         </div>
 
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Logis</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Nexdrop Group of CO.</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
 
