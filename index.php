@@ -8,9 +8,9 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Favicons
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+  <!-- Favicons -->
+  <link href="assets/img/nfavicon.png" rel="icon">
+  <link href="assets/img/nfavicon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -128,6 +128,94 @@
     </section>
     <!-- /Hero Section -->
 
+
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>Features</span>
+        <h2>Features</h2>
+        <p>These are the features we offer to our dear customers and we uphold with pride.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/features-1.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+            <h3> Track in Real Time
+            </h3>
+            <p class="fst-italic">
+              Know exactly where your package is, anytime. Our live tracking system updates the location and status of your delivery from the moment it’s picked up until it’s delivered.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i><span> GPS-powered real-time updates. </span></li>
+              <li><i class="bi bi-check"></i> <span>Estimated delivery time shown to customers.</span></li>
+              <li><i class="bi bi-check"></i> <span>Push notifications or email alerts for important status changes.</span></li>
+              <li><i class="bi bi-check"></i> <span>Reduces “Where is my package?” queries.</span></li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/features-2.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+            <h3>Handled with Care</h3>
+            <p class="fst-italic">
+              We make sure every package is treated with the highest level of attention. Whether it’s fragile electronics, important documents, or sentimental gifts, our delivery team ensures safe transport from start to finish.
+            </p>
+             <ul>
+              <li><i class="bi bi-check"></i><span>Special handling for fragile or high-value items. </span></li>
+              <li><i class="bi bi-check"></i> <span>Use of quality packaging materials.</span></li>
+              <li><i class="bi bi-check"></i> <span>Clear “Fragile” and “Handle with Care” labeling.</span></li>
+              <li><i class="bi bi-check"></i> <span>Trained delivery staff for careful loading and unloading.</span></li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
+            <img src="assets/img/features-3.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7" data-aos="fade-up">
+            <h3>Secure Online Payment</h3>
+            <p>Pay for your courier service quickly and securely. We support multiple payment options and use advanced encryption to protect your transactions and personal details</p>
+            <ul>
+           <li><i class="bi bi-check"></i> <span>Multiple payment methods: debit/credit cards, mobile wallets, and bank transfers.</span></li>
+              <li><i class="bi bi-check"></i><span> Instant payment confirmation.</span></li>
+              <li><i class="bi bi-check"></i> <span>Transparent pricing with no hidden charges.</span>.</li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
+            <img src="assets/img/features-4.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
+            <h3>Worldwide Reach</h3>
+            <p class="fst-italic">
+              From local neighborhoods to global destinations, we make sure your package gets where it needs to be. Our international partnerships ensure fast, secure, and reliable cross-border shipping.
+            </p>
+            <ul>
+               <li><i class="bi bi-check"></i> <span> Nationwide delivery coverage..</span></li>
+              <li><i class="bi bi-check"></i><span> Shipping to major cities worldwide.</span></li>
+              <li><i class="bi bi-check"></i> <span>Partnerships with trusted global courier networks.</span>.</li>
+              <li><i class="bi bi-check"></i> <span>Customs guidance for international packages.</span>.</li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+      </div>
+
+    </section>
+    <!-- /Features Section -->
     <!-- Page Title -->
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
       <div class="container position-relative">
