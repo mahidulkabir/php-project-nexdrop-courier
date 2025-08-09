@@ -434,11 +434,6 @@
       </div>
 
     </section><!-- /Faq Section -->
-
-
-
-
-
   </main>
 
   <?php require_once('./includes/footer.php') ?>
@@ -460,6 +455,8 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
 
 </body>
 

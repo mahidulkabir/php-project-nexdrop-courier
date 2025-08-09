@@ -19,6 +19,5 @@
       </nav>
 
       <a class="btn-getstarted" href="get-a-quote.html">Login</a>
-
     </div>
   </header>
