@@ -21,12 +21,12 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a class="h1"><b>Admin</b></a>
+        <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
       </div>
       <div class="card-body">
         <p class="login-box-msg">Sign in to start working</p>
 
-        <form action="" method="post">
+        <form action="../../index3.html" method="post">
           <div class="input-group mb-3">
             <input type="email" class="form-control" placeholder="Email">
             <div class="input-group-append">
@@ -54,7 +54,10 @@
             </div>
             <!-- /.col -->
             <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+             
+               <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+
+             
             </div>
             <!-- /.col -->
           </div>
