@@ -1,7 +1,7 @@
 <?php require_once('./includes/head.php') ?>
 
 <body class="hold-transition login-page starter-page-page">
-  <div class="mb-5">
+  <div class="  ">
 
     <?php require_once('./includes/navbar.php') ?>
   </div>
@@ -9,7 +9,7 @@
  
    <!-- Page Title -->
     <div class="page-title dark-background w-100" data-aos="fade"
-      style="background-image: url(assets/img/page-title-bg.jpg); margin-top: 400px; margin-bottom: 100px;">
+      style="background-image: url(assets/img/page-title-bg.jpg); margin-top: 300px; margin-bottom: 100px;">
       <div class="container position-relative mt-5">
         <h1>Login as admin or staff</h1>
         <p>This is the section for official staff login </p>
@@ -21,12 +21,12 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+        <a class="h1"><b>Admin</b></a>
       </div>
       <div class="card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Sign in to start working</p>
 
-        <form action="../../index3.html" method="post">
+        <form action="" method="post">
           <div class="input-group mb-3">
             <input type="email" class="form-control" placeholder="Email">
             <div class="input-group-append">
@@ -60,21 +60,14 @@
           </div>
         </form>
 
-        <div class="social-auth-links text-center mt-2 mb-3">
-          <a href="#" class="btn btn-block btn-primary">
-            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-          </a>
-          <a href="#" class="btn btn-block btn-danger">
-            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-          </a>
-        </div>
+        
         <!-- /.social-auth-links -->
 
         <p class="mb-1">
           <a href="forgot-password.html">I forgot my password</a>
         </p>
         <p class="mb-0">
-          <a href="signup.php" class="text-center">Register a new membership</a>
+          <a href="#" class="text-center">Register a new membership</a>
         </p>
       </div>
       <!-- /.card-body -->
