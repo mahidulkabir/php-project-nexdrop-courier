@@ -192,7 +192,7 @@ require('./includes/header.php');
           <!-- fifth item of the list  -->
            <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
-              <i class="nav-icon bi bi-person-bounding-box"></i>
+              <i class="fa-solid fa-magnifying-glass nav-icon"></i>
               <p>
                 Parcel Track
               </p>
