@@ -61,7 +61,21 @@ require('./includes/header.php');
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <!-- ||||||
+               ||||||
+               |||||| -->
 
+
+               <!-- Dashboard item of the list  -->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="fa-solid fa-database nav-icon"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+            
+          </li>
                <!-- fist item of the list  -->
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
@@ -73,14 +87,14 @@ require('./includes/header.php');
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link ">
+                <a href="home.php?page=1" class="nav-link ">
 
                   <i class="fa-solid fa-user-plus nav-icon"></i>
                   <p>Add User</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link ">
+                <a href="home.php?page=2" class="nav-link ">
                   <i class="fa-solid fa-user-gear nav-icon"></i>
                   <p>Manage Users</p>
                 </a>
@@ -98,22 +112,22 @@ require('./includes/header.php');
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link ">
+                <a href="home.php?page=4" class="nav-link ">
                     <i class="fa-solid fa-house-chimney-medical nav-icon"></i>
                   <p>Add Branch</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link ">
+                <a href="home.php?page=5" class="nav-link ">
                   <i class="fa-solid fa-house-circle-exclamation nav-icon"></i>
                   <p>Manage Branch</p>
                 </a>
               </li>
-            </ul>
+            </ul> 
           </li>
           <!-- third item of the list  -->
            <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="" class="nav-link active">
             <i class="fa-solid fa-boxes-stacked nav-icon"></i>
             <p>
                 Parcels
@@ -122,13 +136,13 @@ require('./includes/header.php');
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link ">
+                <a href="home.php?page=7" class="nav-link ">
                   <i class="fa-solid fa-box nav-icon"></i>
                   <p>Add new Parcel</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link ">
+                <a href="home.php?page=8" class="nav-link ">
                 <i class="fa-solid fa-boxes-packing nav-icon"></i>
                 <p>Parcel List</p>
                 </a>
@@ -146,7 +160,7 @@ require('./includes/header.php');
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link ">
+                <a href="home.php?page=10" class="nav-link ">
                   <i class="fa-solid fa-people-carry-box nav-icon"></i>
                   <p>Accepted by courier</p>
                 </a>
@@ -212,7 +226,9 @@ require('./includes/header.php');
     <div class="content-header">
       <div class="container-fluid">
        
-      content goes here
+      <?php 
+      include('./divcontainer.php');
+      ?>
 
       </div>
       <!-- /.container-fluid -->
