@@ -1,5 +1,8 @@
 <?php 
 require('./includes/header.php');
+
+require('./configs/config.php');
+
 ?>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">

@@ -1,4 +1,7 @@
 <?php
+require('./configs/config.php');
+
+
 if(isset($_GET['page'])){
     $page=$_GET['page'];
     if($page==1){
