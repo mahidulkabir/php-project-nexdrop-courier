@@ -11,13 +11,14 @@ require('./configs/config.php');
   if (isset($_POST['btnlogin'])) {
     $email_given = trim($_POST['email']);
     $password_given = trim($_POST['password']);
-    $user_table = $conn->query("select email, password form users where email = '$email_given' and passwoed = '$password_given'");
+    $user_table = $conn->query("select email, password from users where email = '$email_given' and password = '$password_given'");
     list($_email, $_password) = $user_table->fetch_row();
     if(isset($_email)){}
     $_SESSION['s_email'] = $_email;
-    header('location: admin/home.php');
+    header('location:home.php');
   } else{
-    $error = "Invalid Email or Password";
+    $error ="<script>alert('Invalid Email or Password') </script> ";
+    echo $error;
   }
   ;
   ?>
