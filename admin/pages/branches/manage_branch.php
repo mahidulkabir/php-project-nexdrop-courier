@@ -1,1 +1,53 @@
-<h2>this is for managing branches</h2>
+<div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Bordered Table</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">Br ID</th>
+                      <th>Road</th>
+                      <th>Upazilla</th>
+                      <th >Zilla</th>
+                      <th >Contact No</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                $br_add = $conn->query("select * from branches");
+                while (list($id, $road, $upazilla, $zilla, $contact) = $br_add->fetch_row()) {
+                  echo "<tr> 
+					<td>$id</td>
+					<td>$road</td>
+					<td>$upazilla</td>
+					<td>$zilla</td>
+					<td>$contact</td>
+					<td> 
+					
+          <form action='home.php?page=2' method='post'>
+            <input type='hidden' name='txtId' value='$id' />
+            <input type='submit' name='btnDelete' class='material-icons red600' value='delete'>
+          </form>
+          <form action='home.php?page=3' method='post' style='display:inline'>
+           <input type='hidden' name='id' value='$id' />
+           <input type='submit' name='btnEdit'  class='material-icons red600' value='edit'>
+					</td>
+				</tr>";
+                }
+                ?>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">«</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">»</a></li>
+                </ul>
+              </div>
+            </div>
