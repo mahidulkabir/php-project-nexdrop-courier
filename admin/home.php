@@ -126,7 +126,7 @@ require('./configs/config.php');
               <a href="#" class="nav-link active">
                 <i class="nav-icon fa-solid fa-users"></i>
                 <p>
-                  Users
+                  Employees
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -135,13 +135,13 @@ require('./configs/config.php');
                   <a href="home.php?page=1" class="nav-link ">
 
                     <i class="fa-solid fa-user-plus nav-icon"></i>
-                    <p>Add User</p>
+                    <p>Add Employee</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="home.php?page=2" class="nav-link ">
                     <i class="fa-solid fa-user-gear nav-icon"></i>
-                    <p>Manage Users</p>
+                    <p>Manage Employees</p>
                   </a>
                 </li>
               </ul>

@@ -1,6 +1,6 @@
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title">Add New Branch</h3>
+        <h3 class="card-title fs-3 fw-semibold">Add New Branch</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
