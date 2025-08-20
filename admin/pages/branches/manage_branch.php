@@ -12,6 +12,7 @@
                       <th>Upazilla</th>
                       <th >Zilla</th>
                       <th >Contact No</th>
+                      <th >Manage</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -25,14 +26,19 @@
 					<td>$zilla</td>
 					<td>$contact</td>
 					<td> 
-					
+					<div class='d-flex gap-2'>
           <form action='home.php?page=2' method='post'>
             <input type='hidden' name='txtId' value='$id' />
-            <input type='submit' name='btnDelete' class='material-icons red600' value='delete'>
+            <button type='submit' name='btnDelete' class='btn btn-danger'>
+                 <i class='bi bi-trash'></i>
+           </button>
           </form>
           <form action='home.php?page=3' method='post' style='display:inline'>
            <input type='hidden' name='id' value='$id' />
-           <input type='submit' name='btnEdit'  class='material-icons red600' value='edit'>
+            <button type='submit' name='btnEdit' class='btn btn-warning'>
+                         <i class='bi bi-pencil-square'></i>
+             </button>
+              </div>
 					</td>
 				</tr>";
                 }

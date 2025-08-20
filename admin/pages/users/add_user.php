@@ -4,6 +4,7 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
+    
     <form method="POST">
         <div class="card-body">
             <div class="form-group">
@@ -41,39 +42,46 @@
         <!-- /.card-body -->
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary" name="btn-submit-br">Create Branch</button>
+            <button type="submit" class="btn btn-primary" name="btn-submit-User">Create User</button>
         </div>
     </form>
 </div>
 
 <?php
-if (isset($_POST['btn-submit-br'])) {
+if (isset($_POST['btn-submit-User'])) {
 
-    $br_road = $_POST['br_road'];
+    $user_f_name = $_POST['user_f_name'];
 
-    $br_upazilla = $_POST['br_upazilla'];
+    $user_l_name = $_POST['user_l_name'];
 
-    $br_zilla = $_POST['br_zilla'];
+    $user_email = $_POST['user_email'];
 
-    $br_contact = $_POST['br_contact'];
+    $user_password = $_POST['user_password'];
 
-    $sql = "INSERT INTO `branches`(`road`, `upazilla`, `zilla`, `contact`) 
+    $user_contact = $_POST['user_contact'];
 
-           VALUES ('$br_road','$br_upazilla','$br_zilla','$br_contact')";
+    $user_role = $_POST['user_role'];
+
+    $user_branch_id = $_POST['user_branch_id'];
+
+    $sql = "INSERT INTO `users`(`first_name`, `last_name`, `email`, `password`,`contact`,`role`,`branch_id`) 
+
+           VALUES ('$user_f_name','$user_l_name','$user_email','$user_password','$user_contact','$user_role','$user_branch_id')";
 
     $result = $conn->query($sql);
 
-     if ($result == TRUE) {
-      $mesg = "<script> alert('branch added successfully')</script>";
+       if ($result == TRUE) {
+      $mesg = "Created User Successfully";
     echo $mesg;
      
 
     }else{
 
-     $mesg = "<script> alert('something wrong')</script>";
+     $mesg = "User creation failed";
     echo $mesg;
 
     }
+    
 
     $conn->close();
 
