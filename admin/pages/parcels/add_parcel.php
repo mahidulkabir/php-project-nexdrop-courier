@@ -119,34 +119,48 @@
 <?php
 if (isset($_POST['btn-submit-User'])) {
 
-    $user_f_name = $_POST['user_f_name'];
+    $order_id = $_POST['order_id'];
 
-    $user_l_name = $_POST['user_l_name'];
+    $created_by = $_POST['created_by'];
 
-    $user_email = $_POST['user_email'];
+    $sender_name = $_POST['sender_name'];
 
-    $user_password = $_POST['user_password'];
+    $sender_address = $_POST['sender_address'];
 
-    $user_contact = $_POST['user_contact'];
+    $sender_contact = $_POST['sender_contact'];
 
-    $user_role = $_POST['user_role'];
+    $sender_nid = $_POST['sender_nid'];
 
-    $user_branch_id = $_POST['user_branch_id'];
+    $recipient_name = $_POST['recipient_name'];
 
-    $sql = "INSERT INTO `users`(`first_name`, `last_name`, `email`, `password`,`contact`,`role`,`branch_id`) 
+    $recipient_address = $_POST['recipient_address'];
 
-           VALUES ('$user_f_name','$user_l_name','$user_email','$user_password','$user_contact','$user_role','$user_branch_id')";
+    $recipient_contact = $_POST['recipient_contact'];
+
+    $from_branch = $_POST['from_branch'];
+
+    $to_branch = $_POST['to_branch'];
+
+    $parcel_weight = $_POST['parcel_weight'];
+
+    $parcel_risk_level = $_POST['parcel_risk_level'];
+
+    $parcel_price = $_POST['parcel_price'];
+
+    $parcel_status = $_POST['parcel_status'];
+
+    $sql = "INSERT INTO `parcels`(`order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_address`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status`)  VALUES ('$order_id','$created_by','$sender_name','$sender_address','$sender_contact','$sender_nid','$recipient_name','$recipient_address','$recipient_contact','$from_branch','$to_branch','$parcel_weight','$parcel_risk_level','$parcel_price','$parcel_status')";
 
     $result = $conn->query($sql);
 
     if ($result == TRUE) {
-        $mesg = "Created User Successfully";
+        $mesg = "Created Parcel Successfully";
         echo $mesg;
 
 
     } else {
 
-        $mesg = "User creation failed";
+        $mesg = "Parcel creation failed";
         echo $mesg;
 
     }
