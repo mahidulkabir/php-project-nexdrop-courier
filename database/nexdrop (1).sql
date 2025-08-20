@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2025 at 03:24 AM
+-- Generation Time: Aug 20, 2025 at 04:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,6 +47,32 @@ INSERT INTO `branches` (`id`, `road`, `upazilla`, `zilla`, `contact`, `created_a
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `parcels`
+--
+
+CREATE TABLE `parcels` (
+  `id` int(11) NOT NULL,
+  `order_id` varchar(20) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `sender_name` varchar(100) NOT NULL,
+  `sender_address` varchar(200) NOT NULL,
+  `sender_contact` varchar(50) NOT NULL,
+  `sender_nid` varchar(20) NOT NULL,
+  `recipient_name` varchar(100) NOT NULL,
+  `recipient_add` varchar(200) NOT NULL,
+  `recipient_contact` varchar(50) NOT NULL,
+  `from_br_id` int(10) NOT NULL,
+  `to_br_id` int(10) NOT NULL,
+  `weight` int(20) NOT NULL,
+  `risk_type` varchar(50) NOT NULL,
+  `price` int(10) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -67,7 +93,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `contact`, `role`, `branch_id`, `created_at`) VALUES
-(1, 'Mahidul', 'Kabir', 'mahidulkabir8@gmail.com', '123', '01706513542', 1, 0, '2025-08-13 09:24:21');
+(1, 'Mahidul', 'Kabir', 'mahidulkabir8@gmail.com', '123', '01706513542', 1, 0, '2025-08-13 09:24:21'),
+(2, 'Osman ', 'Goni', 'Osman@goni.com', '1234', '01718191101', 2, 2, '2025-08-20 01:11:02'),
+(3, 'Meshkat ', 'Kabir', 'meshkat@gmail.com', '123', '01718191101', 2, 4, '2025-08-20 01:19:04');
 
 --
 -- Indexes for dumped tables
@@ -77,6 +105,12 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `cont
 -- Indexes for table `branches`
 --
 ALTER TABLE `branches`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `parcels`
+--
+ALTER TABLE `parcels`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -93,13 +127,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `parcels`
+--
+ALTER TABLE `parcels`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
