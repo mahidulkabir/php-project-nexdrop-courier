@@ -8,24 +8,49 @@ require('./configs/config.php');
 <body class="hold-transition login-page starter-page-page">
 
   <?php
+  // filtering function 
+  function input_filter($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  };
+
+
   if (isset($_POST['btnlogin'])) {
-    $email_given = trim($_POST['email']);
-    $password_given = trim($_POST['password']);
-    $user_table = $conn->query("select first_name email, password from users where email = '$email_given' and password = '$password_given'");
-    list($_first_name, $_email, $_password) = $user_table->fetch_row();
+    // filtering user input 
+    $email_given = input_filter($_POST['email']);
+    $password_given = input_filter($_POST['password']);
 
-    if(isset($_email)){
-      session_start();
-      $_SESSION['s_f_name'] = $_first_name;
-      header('location:home.php');
+    // escaping special symbols used in sql commands 
+    $email_given = mysqli_real_escape_string($conn, $email_given);
+    $password_given = mysqli_real_escape_string($conn, $password_given);
 
-    }
-   else{
-    $error = "<script> alert('invalid email or password')</script>";
-    echo $error;
-  }
-};
-  ;
+    // query template 
+    $query = "SELECT first_name, email, password FROM users WHERE email =? and password =?";
+
+    // prepared statement 
+    if ($stmt = mysqli_prepare($conn, $query)) {
+      mysqli_stmt_bind_param($stmt, "ss", $email_given, $password_given); // binding values
+      mysqli_stmt_execute($stmt); // execute prepared stmt
+      mysqli_stmt_store_result($stmt); // storing result
+
+      if (mysqli_stmt_num_rows($stmt) == 1) {
+        // bind the actual columns from result to PHP variables
+        mysqli_stmt_bind_result($stmt, $_first_name, $_email, $_password);
+        mysqli_stmt_fetch($stmt); // fetch the data into variables
+
+        session_start();
+        $_SESSION['s_f_name'] = $_first_name; // now $_first_name is defined
+        header('location:home.php');
+      } else {
+        $error = "Invalid email or password";
+        echo $error;
+      };
+    };
+    mysqli_stmt_close($stmt);
+  };
   ?>
 
 
@@ -38,7 +63,7 @@ require('./configs/config.php');
       <div class="card-body">
         <p class="login-box-msg">Sign in to start working</p>
 
-        <form action="#" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
           <div class="input-group mb-3">
             <input type="email" class="form-control" name="email" placeholder="Email">
             <div class="input-group-append">

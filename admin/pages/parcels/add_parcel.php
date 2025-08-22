@@ -1,4 +1,3 @@
-<h2>this is for adding new parcel </h2>
 <div class="card card-primary">
     <div class="card-header">
         <h3 class="card-title fs-3 fw-semibold" >Add New Employee</h3>
