@@ -42,7 +42,7 @@ require('./configs/config.php');
         mysqli_stmt_fetch($stmt); // fetch the data into variables
 
         session_start();
-        $_SESSION['s_f_name'] = $_first_name; // now $_first_name is defined
+        $_SESSION['s_f_name'] = $_first_name; // now $_first_name is defin
         header('location:home.php');
       } else {
         $error = "Invalid email or password";
