@@ -7,7 +7,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>Employee ID</th>
+          <!-- <th>Employee ID</th> -->
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
@@ -24,7 +24,7 @@
         $user_add = $conn->query("select * from users");
         while (list($id, $f_name, $l_name, $email, $password, $contact, $role, $br_id) = $user_add->fetch_row()) {
           echo "<tr> 
-					<td>$id</td>
+					
 					<td>$f_name</td>
 					<td>$l_name</td>
 					<td>$email</td>
