@@ -1,1 +1,100 @@
 <h2>this is for editing existing branches</h2>
+
+<?php
+if(isset($_POST['btnUpdate'])){
+$id = $_POST["id"];
+$fname = $_POST["fname"];
+$lname = $_POST["lname"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+$contact = $_POST["contact"];
+$update_user = $conn->query("update users set first_name='$fname', last_name='$lname', email='$email', password='$password', contact='$contact' where id='$id'");
+
+$update_user = $conn->query("update users set first_name = '$fname', last_name = '$lname', email = '$email',password = '$password', contact = '$contact' where id = '$id'");
+$r = "update successful";
+echo $r;
+};
+
+
+if(isset($_POST['btnEdit'])){
+    $id = $_POST["id"];
+    $user_table = $conn->query("select first_name, last_name, email, password,contact, role, branch_id from users where id='$id'");
+    list($f_name, $l_name, $email, $password, $contact, $role, $br_id) = $user_table->fetch_row();
+};
+?>
+
+<!-- content wrapper. contains page content  -->
+  <!-- Content Wrapper. Contains page content -->
+
+
+  <div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+        <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">User Update Form</h3>
+              </div>
+              <!-- /.card-header -->
+        
+  </div>
+  <div class="ftitle text-center"> 
+			
+		</div>
+              <!-- form start -->
+             <form action="#" method="post">
+                  <div class="card-body">
+
+              <div class="form-group">
+                <input type="hidden" class="form-control"  name="id" value="<?php echo $id ?>">
+              </div>
+              <div class="form-group">
+                <label for="y">First Name</label>
+                <input type="text" class="form-control" id="y" name="fname" value="<?php echo $f_name ?>">
+              </div>
+              <div class="form-group">
+                <label for="y">Last Name</label>
+                <input type="text" class="form-control" id="y" name="lname" value="<?php echo $l_name ?>">
+              </div>
+               <div class="form-group">
+                <label for="p">Email</label>
+                <input type="text" class="form-control" id="p" name="email" value="<?php echo $email ?>">
+              </div>
+               <div class="form-group">
+                <label for="r">password</label>
+                <input type="text" class="form-control" id="r" name="password" value="<?php echo $password ?>">
+              </div>
+               <div class="form-group">
+                <label for="r">Contact</label>
+                <input type="text" class="form-control" id="r" name="contact" value="<?php echo $contact ?>">
+              </div>
+              
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary" name="btnUpdate">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- /.card-footer-->
+    </div>
+            </div>
+        </div>
+      
+        <!-- /.card-footer-->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
