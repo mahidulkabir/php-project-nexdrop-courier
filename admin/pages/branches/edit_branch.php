@@ -1,16 +1,12 @@
-<h2>this is for editing existing branches</h2>
-
 <?php
 if(isset($_POST['btnUpdate'])){
 $id = $_POST["id"];
-$fname = $_POST["fname"];
-$lname = $_POST["lname"];
-$email = $_POST["email"];
-$password = $_POST["password"];
-$contact = $_POST["contact"];
-$update_user = $conn->query("update users set first_name='$fname', last_name='$lname', email='$email', password='$password', contact='$contact' where id='$id'");
+$br_road = $_POST["br_road"];
+$br_upazilla = $_POST["br_upazilla"];
+$br_zilla = $_POST["br_zilla"];
+$contact = $_POST["br_contact"];
+$update_user = $conn->query("update branches set road='$br_road', upazilla='$br_upazilla', zilla='$br_zilla', contact='$contact' where id='$id'");
 
-$update_user = $conn->query("update users set first_name = '$fname', last_name = '$lname', email = '$email',password = '$password', contact = '$contact' where id = '$id'");
 $r = "update successful";
 echo $r;
 };
@@ -18,8 +14,8 @@ echo $r;
 
 if(isset($_POST['btnEdit'])){
     $id = $_POST["id"];
-    $user_table = $conn->query("select first_name, last_name, email, password,contact, role, branch_id from users where id='$id'");
-    list($f_name, $l_name, $email, $password, $contact, $role, $br_id) = $user_table->fetch_row();
+    $branch_table = $conn->query("SELECT road, upazilla, zilla, contact FROM branches WHERE id='$id'");
+    list($road, $upazilla, $zilla, $contact) = $branch_table->fetch_row();
 };
 ?>
 
@@ -39,7 +35,7 @@ if(isset($_POST['btnEdit'])){
         <div class="card-body">
         <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">User Update Form</h3>
+                <h3 class="card-title">Branch Info Update Form</h3>
               </div>
               <!-- /.card-header -->
         
@@ -55,24 +51,20 @@ if(isset($_POST['btnEdit'])){
                 <input type="hidden" class="form-control"  name="id" value="<?php echo $id ?>">
               </div>
               <div class="form-group">
-                <label for="y">First Name</label>
-                <input type="text" class="form-control" id="y" name="fname" value="<?php echo $f_name ?>">
+                <label for="y">Road</label>
+                <input type="text" class="form-control" id="y" name="br_road" value="<?php echo $road ?>">
               </div>
               <div class="form-group">
-                <label for="y">Last Name</label>
-                <input type="text" class="form-control" id="y" name="lname" value="<?php echo $l_name ?>">
+                <label for="y">Upazilla</label>
+                <input type="text" class="form-control" id="y" name="br_upazilla" value="<?php echo $upazilla ?>">
               </div>
                <div class="form-group">
-                <label for="p">Email</label>
-                <input type="text" class="form-control" id="p" name="email" value="<?php echo $email ?>">
-              </div>
-               <div class="form-group">
-                <label for="r">password</label>
-                <input type="text" class="form-control" id="r" name="password" value="<?php echo $password ?>">
+                <label for="p">Zilla</label>
+                <input type="text" class="form-control" id="p" name="br_zilla" value="<?php echo $zilla ?>">
               </div>
                <div class="form-group">
                 <label for="r">Contact</label>
-                <input type="text" class="form-control" id="r" name="contact" value="<?php echo $contact ?>">
+                <input type="text" class="form-control" id="r" name="br_contact" value="<?php echo $contact ?>">
               </div>
               
             </div>

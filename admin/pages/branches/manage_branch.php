@@ -33,7 +33,7 @@
                  <i class='bi bi-trash'></i>
            </button>
           </form>
-          <form action='home.php?page=3' method='post' style='display:inline'>
+          <form action='home.php?page=6' method='post' style='display:inline'>
            <input type='hidden' name='id' value='$id' />
             <button type='submit' name='btnEdit' class='btn btn-warning'>
                          <i class='bi bi-pencil-square'></i>

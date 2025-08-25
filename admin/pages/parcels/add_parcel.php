@@ -111,13 +111,13 @@
         <!-- /.card-body -->
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary" name="btn-submit-User">Recieve Parcel</button>
+            <button type="submit" class="btn btn-primary" name="btn-submit-user">Recieve Parcel</button>
         </div>
     </form>
 </div>
 
 <?php
-if (isset($_POST['btn-submit-User'])) {
+if (isset($_POST['btn-submit-user'])) {
 
     $order_id = $_POST['order_id'];
 
@@ -149,7 +149,7 @@ if (isset($_POST['btn-submit-User'])) {
 
     $parcel_status = $_POST['parcel_status'];
 
-    $sql = "INSERT INTO `parcels`(`order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_address`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status`)  VALUES ('$order_id','$created_by','$sender_name','$sender_address','$sender_contact','$sender_nid','$recipient_name','$recipient_address','$recipient_contact','$from_branch','$to_branch','$parcel_weight','$parcel_risk_level','$parcel_price','$parcel_status')";
+    $sql = "INSERT INTO `parcels`(`order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_add`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status`)  VALUES ('$order_id','$created_by','$sender_name','$sender_address','$sender_contact','$sender_nid','$recipient_name','$recipient_address','$recipient_contact','$from_branch','$to_branch','$parcel_weight','$parcel_risk_level','$parcel_price','$parcel_status')";
 
     $result = $conn->query($sql);
 

@@ -6,8 +6,6 @@ $lname = $_POST["lname"];
 $email = $_POST["email"];
 $password = $_POST["password"];
 $contact = $_POST["contact"];
-$update_user = $conn->query("update users set first_name='$fname', last_name='$lname', email='$email', password='$password', contact='$contact' where id='$id'");
-
 $update_user = $conn->query("update users set first_name = '$fname', last_name = '$lname', email = '$email',password = '$password', contact = '$contact' where id = '$id'");
 $r = "update successful";
 echo $r;
@@ -16,7 +14,7 @@ echo $r;
 
 if(isset($_POST['btnEdit'])){
     $id = $_POST["id"];
-    $user_table = $conn->query("select first_name, last_name, email, password,contact, role, branch_id from users where id='$id'");
+    $user_table = $conn->query("SELECT first_name, last_name, email, password,contact, role, branch_id FROM users WHERE id='$id'");
     list($f_name, $l_name, $email, $password, $contact, $role, $br_id) = $user_table->fetch_row();
 };
 ?>
