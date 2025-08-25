@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2025 at 04:01 AM
+-- Generation Time: Aug 25, 2025 at 03:18 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,7 @@ CREATE TABLE `branches` (
 --
 
 INSERT INTO `branches` (`id`, `road`, `upazilla`, `zilla`, `contact`, `created_at`) VALUES
-(1, 'uttar station', 'lakshmipur Sadar', 'lakshmipur', '01715052430', '2025-08-19 01:04:23'),
+(1, 'uttar station, rahim', 'lakshmipur Sadar', 'lakshmipur', '01718191101', '2025-08-24 23:48:41'),
 (3, 'high school road', 'raypur', 'lakshmipur', '01718191101', '2025-08-19 01:22:55');
 
 -- --------------------------------------------------------
@@ -69,6 +69,15 @@ CREATE TABLE `parcels` (
   `status` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `parcels`
+--
+
+INSERT INTO `parcels` (`id`, `order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_add`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status`, `created_at`) VALUES
+(1, 'NX001', 1, 'Nayeem', 'Lakshmipur', '01744579851', '123 123 1234', 'Osman Goni', 'Barishal', '01797147515', 0, 0, 1, 'Low', 125, 'Recieved', '2025-08-25 00:07:21'),
+(2, 'NX002', 3, 'Hares', 'Netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 0, 0, 1, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:27'),
+(3, 'NX002', 3, 'Hares', ' Netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhanmondi, Dhaka', '01797147515', 0, 0, 1, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:46');
 
 -- --------------------------------------------------------
 
@@ -133,7 +142,7 @@ ALTER TABLE `branches`
 -- AUTO_INCREMENT for table `parcels`
 --
 ALTER TABLE `parcels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
