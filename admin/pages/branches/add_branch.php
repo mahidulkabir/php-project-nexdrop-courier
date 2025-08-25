@@ -8,6 +8,7 @@
         <div class="card-body">
             <div class="form-group">
                 <label>Branch Address</label> <br>
+                <input type="text" class="form-control"  name="br_name" placeholder="Enter Branch Name"> <br>
                 <input type="text" class="form-control"  name="br_road" placeholder="Enter road"> <br>
                 <input type="text" class="form-control"  name="br_upazilla" placeholder="Enter Upazilla"> <br>
                 <input type="text" class="form-control"  name="br_zilla" placeholder="Enter zilla">
@@ -30,6 +31,8 @@
 <?php
 if (isset($_POST['btn-submit-br'])) {
 
+    $br_name = $_POST['br_name'];
+
     $br_road = $_POST['br_road'];
 
     $br_upazilla = $_POST['br_upazilla'];
@@ -38,9 +41,9 @@ if (isset($_POST['btn-submit-br'])) {
 
     $br_contact = $_POST['br_contact'];
 
-    $sql = "INSERT INTO `branches`(`road`, `upazilla`, `zilla`, `contact`) 
+    $sql = "INSERT INTO `branches`(`br_name`,`road`, `upazilla`, `zilla`, `contact`) 
 
-           VALUES ('$br_road','$br_upazilla','$br_zilla','$br_contact')";
+           VALUES ('$br_name','$br_road','$br_upazilla','$br_zilla','$br_contact')";
 
     $result = $conn->query($sql);
 

@@ -19,7 +19,17 @@
                     </div>
                     <div class="form-group col-6 ">
                         <label>Created By</label> <br>
-                        <input type="text" class="form-control" name="created_by" placeholder="Select Your ID">
+                        <select name="created_by" class="form-control">
+                            <?php
+                            $sql = "SELECT id, emp_id FROM users";
+                            $my_query = $conn->query($sql);
+                            while ($data = mysqli_fetch_array($my_query)) {
+                                $data_id = $data['id'];
+                                $data_name = $data['emp_id'];
+                                echo "<option value='$data_id'> $data_name </option>";
+                            }
+                            ?>
+                            </select>
                     </div>
                 </div>
 
@@ -64,7 +74,7 @@
                             <input type="text" class="form-control" name="recipient_contact"
                                 placeholder="Enter Recipient Contact">
                         </div>
-                        
+
                         <div class="form-group ">
                             <label>Recipient address</label> <br>
                             <textarea class="form-control" name="recipient_address" placeholder="Enter Recipient Address"
@@ -75,36 +85,58 @@
 
 
 
-            <div class="row col-lg-12 shadow">
-                <h3>Parcel Information</h3>
+                <div class="row col-lg-12 shadow">
+                    <h3>Parcel Information</h3>
 
-                <div class="form-group col-lg-3 col-md-3 ">
-                    <label>From Branch</label> <br>
-                    <input type="text" class="form-control" name="from_branch" placeholder="Enter Sender Branch">
+                    <div class="form-group col-lg-3 col-md-3 ">
+                        <label>From Branch</label> <br>
+                        <!-- <input type="text"  placeholder="Enter Sender Branch"> -->
+                        <select class="form-control" name="from_branch">
+                            <?php
+                            $sql = "SELECT id, br_name FROM branches";
+                            $my_query = $conn->query($sql);
+                            while ($data = mysqli_fetch_array($my_query)) {
+                                $data_id = $data['id'];
+                                $data_name = $data['br_name'];
+                                echo "<option value='$data_id'> $data_name </option>";
+                            }
+                            ?>
+                            </select>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3">
+                        <label>To Branch</label> <br>
+                        <!-- <input type="text" class="form-control" name="to_branch" placeholder="Enter Recipient Branch"> -->
+                        <select class="form-control" name="to_branch">
+                            <?php
+                            $sql = "SELECT id, br_name FROM branches";
+                            $my_query = $conn->query($sql);
+                            while ($data = mysqli_fetch_array($my_query)) {
+                                $data_id = $data['id'];
+                                $data_name = $data['br_name'];
+                                echo "<option value='$data_id'> $data_name </option>";
+                            }
+                            ?>
+                            </select>
+                    </div>
+                    <!-- parcel section  -->
+                    <div class="form-group col-lg-3 col-md-3">
+                        <label>Parcel Weight</label> <br>
+                        <input type="text" class="form-control" name="parcel_weight" placeholder="Enter Parcel Weight">
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3">
+                        <label>Parcel Risk Level</label> <br>
+                        <input type="text" class="form-control" name="parcel_risk_level"
+                            placeholder="Enter Parcel Risk Level">
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6">
+                        <label>Parcel Price</label> <br>
+                        <input type="text" class="form-control" name="parcel_price" placeholder="Enter Parcel Price">
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6">
+                        <label>Parcel Status</label> <br>
+                        <input type="text" class="form-control" name="parcel_status" placeholder="Enter Parcel Status">
+                    </div>
                 </div>
-                <div class="form-group col-lg-3 col-md-3">
-                    <label>To Branch</label> <br>
-                    <input type="text" class="form-control" name="to_branch" placeholder="Enter Recipient Branch">
-                </div>
-                <!-- parcel section  -->
-                <div class="form-group col-lg-3 col-md-3">
-                    <label>Parcel Weight</label> <br>
-                    <input type="text" class="form-control" name="parcel_weight" placeholder="Enter Parcel Weight">
-                </div>
-                <div class="form-group col-lg-3 col-md-3">
-                    <label>Parcel Risk Level</label> <br>
-                    <input type="text" class="form-control" name="parcel_risk_level"
-                        placeholder="Enter Parcel Risk Level">
-                </div>
-                <div class="form-group col-lg-6 col-md-6">
-                    <label>Parcel Price</label> <br>
-                    <input type="text" class="form-control" name="parcel_price" placeholder="Enter Parcel Price">
-                </div>
-                <div class="form-group col-lg-6 col-md-6">
-                    <label>Parcel Status</label> <br>
-                    <input type="text" class="form-control" name="parcel_status" placeholder="Enter Parcel Status">
-                </div>
-            </div>
 
             </div>
         </div>
@@ -156,17 +188,13 @@ if (isset($_POST['btn-submit-user'])) {
     if ($result == TRUE) {
         $mesg = "Created Parcel Successfully";
         echo $mesg;
-
-
     } else {
 
         $mesg = "Parcel creation failed";
         echo $mesg;
-
     }
 
 
     $conn->close();
-
 }
 ?>

@@ -8,6 +8,10 @@
     <form method="POST">
         <div class="card-body">
             <div class="form-group">
+                <label>Employee ID</label> <br>
+                <input type="text" class="form-control" name="user_e_id" placeholder="Enter Employee ID">
+            </div>
+            <div class="form-group">
                 <label>First Name</label> <br>
                 <input type="text" class="form-control" name="user_f_name" placeholder="Enter First Name">
             </div>
@@ -70,6 +74,8 @@
 <?php
 if (isset($_POST['btn-submit-User'])) {
 
+    $user_e_id = $_POST['user_e_id'];
+
     $user_f_name = $_POST['user_f_name'];
 
     $user_l_name = $_POST['user_l_name'];
@@ -84,9 +90,9 @@ if (isset($_POST['btn-submit-User'])) {
 
     $user_branch_id = $_POST['user_branch_id'];
 
-    $sql = "INSERT INTO `users`(`first_name`, `last_name`, `email`, `password`,`contact`,`role`,`branch_id`) 
+    $sql = "INSERT INTO `users`(`emp_id`,`first_name`, `last_name`, `email`, `password`,`contact`,`role`,`branch_id`) 
 
-           VALUES ('$user_f_name','$user_l_name','$user_email','$user_password','$user_contact','$user_role','$user_branch_id')";
+           VALUES ('$user_e_id','$user_f_name','$user_l_name','$user_email','$user_password','$user_contact','$user_role','$user_branch_id')";
 
     $result = $conn->query($sql);
 

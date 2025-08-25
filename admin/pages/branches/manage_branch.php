@@ -7,7 +7,7 @@
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th style="width: 10px">Br ID</th>
+                      <th >Br Name</th>
                       <th>Road</th>
                       <th>Upazilla</th>
                       <th >Zilla</th>
@@ -18,9 +18,9 @@
                   <tbody>
                     <?php
                 $br_add = $conn->query("select * from branches");
-                while (list($id, $road, $upazilla, $zilla, $contact) = $br_add->fetch_row()) {
+                while (list($id,$brname, $road, $upazilla, $zilla, $contact) = $br_add->fetch_row()) {
                   echo "<tr> 
-					<td>$id</td>
+					<td>$brname</td>
 					<td>$road</td>
 					<td>$upazilla</td>
 					<td>$zilla</td>
