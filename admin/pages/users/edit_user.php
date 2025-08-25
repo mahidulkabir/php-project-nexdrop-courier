@@ -6,7 +6,7 @@ $lname = $_POST["lname"];
 $email = $_POST["email"];
 $password = $_POST["password"];
 $contact = $_POST["contact"];
-$update_user = $conn->query("update users set first_name = '$fname', last_name = '$lname', email = '$email',password = '$password', contact = '$contact' where id = '$id'");
+$update_user = $conn->query("UPDATE users SET first_name = '$fname', last_name = '$lname', email = '$email',password = '$password', contact = '$contact' where id = '$id'");
 $r = "update successful";
 echo $r;
 };

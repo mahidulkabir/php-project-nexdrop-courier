@@ -1,6 +1,7 @@
 <?php
 if (isset($_POST['btn_update'])) {
 
+    $id = $_POST['id'];
     $order_id = $_POST['order_id'];
 
     $created_by = $_POST['created_by'];
@@ -31,12 +32,12 @@ if (isset($_POST['btn_update'])) {
 
     $parcel_status = $_POST['parcel_status'];
 
-    $sql = "INSERT INTO `parcels`(`order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_add`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status`)  VALUES ('$order_id','$created_by','$sender_name','$sender_address','$sender_contact','$sender_nid','$recipient_name','$recipient_address','$recipient_contact','$from_branch','$to_branch','$parcel_weight','$parcel_risk_level','$parcel_price','$parcel_status')";
+    $sql = "UPDATE parcels SET order_id='$order_id', created_by='$created_by', sender_name='$sender_name', sender_address='$sender_address', sender_contact='$sender_contact', sender_nid='$sender_nid', recipient_name='$recipient_name', recipient_add='$recipient_address', recipient_contact='$recipient_contact', from_br_id='$from_branch', to_br_id='$to_branch', weight='$parcel_weight', risk_type='$parcel_risk_level', price='$parcel_price', status='$parcel_status' WHERE id='$id'";
 
     $result = $conn->query($sql);
 
     if ($result == TRUE) {
-        $mesg = "Created Parcel Successfully";
+        $mesg = "Parcel Updated Successfully";
         echo $mesg;
 
 
@@ -180,7 +181,7 @@ if(isset($_POST['btnEdit'])){
         <!-- /.card-body -->
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary" name="btn_update">Recieve Parcel</button>
+            <button type="submit" class="btn btn-primary" name="btn_update">Update Parcel</button>
         </div>
     </form>
 </div>
