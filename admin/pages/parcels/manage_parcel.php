@@ -1,9 +1,7 @@
-<h2>this is for managing existing parcel</h2>
-
 
 <div class="card">
               <div class="card-header">
-                <h3 class="card-title fs-3 fw-semibold">Branch Table</h3>
+                <h3 class="card-title fs-3 fw-semibold">Manage Parcels </h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -36,7 +34,7 @@
                  <i class='bi bi-trash'></i>
            </button>
           </form>
-          <form action='home.php?page=6' method='post' style='display:inline'>
+          <form action='home.php?page=9' method='post' style='display:inline'>
            <input type='hidden' name='id' value='$id' />
             <button type='submit' name='btnEdit' class='btn btn-warning'>
                          <i class='bi bi-pencil-square'></i>
