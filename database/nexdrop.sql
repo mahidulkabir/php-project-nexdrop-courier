@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2025 at 03:18 AM
+-- Generation Time: Aug 26, 2025 at 12:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `branches` (
   `id` int(11) NOT NULL,
+  `br_name` varchar(100) NOT NULL,
   `road` varchar(20) DEFAULT NULL,
   `upazilla` varchar(20) DEFAULT NULL,
   `zilla` varchar(20) NOT NULL,
@@ -40,9 +41,13 @@ CREATE TABLE `branches` (
 -- Dumping data for table `branches`
 --
 
-INSERT INTO `branches` (`id`, `road`, `upazilla`, `zilla`, `contact`, `created_at`) VALUES
-(1, 'uttar station, rahim', 'lakshmipur Sadar', 'lakshmipur', '01718191101', '2025-08-24 23:48:41'),
-(3, 'high school road', 'raypur', 'lakshmipur', '01718191101', '2025-08-19 01:22:55');
+INSERT INTO `branches` (`id`, `br_name`, `road`, `upazilla`, `zilla`, `contact`, `created_at`) VALUES
+(1, 'lakshmipur sadar main', 'uttar station, rahim', 'lakshmipur Sadar', 'lakshmipur', '01718191101', '2025-08-25 11:47:08'),
+(3, 'raypur lakshmipur', 'high school road', 'raypur', 'lakshmipur', '01718191101', '2025-08-25 11:47:35'),
+(5, 'mandari lakshmipur', 'main road', 'lakshmipur Sadar', 'lakshmipur', '01635894852', '2025-08-25 16:53:49'),
+(6, 'ctg main', 'barek building', 'anderkilla', 'chattogram', '01725365986', '2025-08-25 16:59:17'),
+(7, 'comilla main', 'bokul market', 'comilla sadar', 'comilla', '01856425888', '2025-08-25 17:00:07'),
+(8, 'dhaka main', 'Ratul plaza', 'gulshan', 'dhaka', '01718191101', '2025-08-25 17:02:31');
 
 -- --------------------------------------------------------
 
@@ -63,7 +68,7 @@ CREATE TABLE `parcels` (
   `recipient_contact` varchar(50) NOT NULL,
   `from_br_id` int(10) NOT NULL,
   `to_br_id` int(10) NOT NULL,
-  `weight` int(20) NOT NULL,
+  `weight` decimal(20,3) NOT NULL,
   `risk_type` varchar(50) NOT NULL,
   `price` int(10) NOT NULL,
   `status` varchar(100) NOT NULL,
@@ -75,9 +80,9 @@ CREATE TABLE `parcels` (
 --
 
 INSERT INTO `parcels` (`id`, `order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_add`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status`, `created_at`) VALUES
-(1, 'NX001', 1, 'Nayeem', 'Lakshmipur', '01744579851', '123 123 1234', 'Osman Goni', 'Barishal', '01797147515', 0, 0, 1, 'Low', 125, 'Recieved', '2025-08-25 00:07:21'),
-(2, 'NX002', 3, 'Hares', 'Netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 0, 0, 1, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:27'),
-(3, 'NX002', 3, 'Hares', ' Netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhanmondi, Dhaka', '01797147515', 0, 0, 1, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:46');
+(1, 'NX001', 1, 'Nayeem', 'Lakshmipur', '01744579851', '123 123 1234', 'Osman Goni', 'Barishal', '01797147515', 0, 0, 0.024, 'Low', 125, 'Recieved', '2025-08-25 00:07:21'),
+(2, 'NX002', 3, 'Hares', 'Netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 0, 0, 1.420, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:27'),
+(3, 'NX002', 3, 'Hares', ' Netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhanmondi, Dhaka', '01797147515', 0, 0, 0.485, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:46');
 
 -- --------------------------------------------------------
 
@@ -87,6 +92,7 @@ INSERT INTO `parcels` (`id`, `order_id`, `created_by`, `sender_name`, `sender_ad
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `emp_id` varchar(20) NOT NULL,
   `first_name` varchar(25) DEFAULT NULL,
   `last_name` varchar(25) DEFAULT NULL,
   `email` varchar(40) DEFAULT NULL,
@@ -101,10 +107,14 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `contact`, `role`, `branch_id`, `created_at`) VALUES
-(1, 'Mahidul', 'Kabir', 'mahidulkabir8@gmail.com', '123', '01706513542', 1, 0, '2025-08-13 09:24:21'),
-(2, 'Osman ', 'Goni', 'Osman@goni.com', '1234', '01718191101', 2, 2, '2025-08-20 01:11:02'),
-(3, 'Meshkat ', 'Kabir', 'meshkat@gmail.com', '123', '01718191101', 2, 4, '2025-08-20 01:19:04');
+INSERT INTO `users` (`id`, `emp_id`, `first_name`, `last_name`, `email`, `password`, `contact`, `role`, `branch_id`, `created_at`) VALUES
+(1, 'nexemp', 'Mahidul', 'Kabir', 'mahidulkabir8@gmail.com', '123', '01706513542', 1, 0, '2025-08-25 17:12:55'),
+(2, 'nexemp001', 'Osman ', 'Goni', 'Osman@goni.com', '1234', '01718191101', 2, 2, '2025-08-25 17:12:45'),
+(3, 'nexemp002', 'Meshkat ', 'Kabir', 'meshkat@gmail.com', '123', '01718191101', 2, 4, '2025-08-25 17:13:03'),
+(5, 'nexemp003', 'casio', 'marma', 'marma@casio.com', '456', '0195124856', 2, 5, '2025-08-25 17:17:04'),
+(6, 'nexemp004', 'junayed', 'siddique', 'siddique@junayed.com', '123', '01658452236', 2, 6, '2025-08-25 17:19:03'),
+(7, 'nexemp005', 'bilashi', 'banu', 'banu@bilashi.com', '123', '01365458595', 2, 7, '2025-08-25 17:19:52'),
+(8, 'nexemp006', 'saiful', 'islam', 'islam@saiful.com', '123', '01426663314', 2, 8, '2025-08-25 17:20:38');
 
 --
 -- Indexes for dumped tables
@@ -136,7 +146,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `parcels`
@@ -148,7 +158,7 @@ ALTER TABLE `parcels`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
