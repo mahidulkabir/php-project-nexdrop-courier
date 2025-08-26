@@ -30,6 +30,9 @@ if(isset($_GET['page'])){
     else if($page==9){
         include('./pages/parcels/edit_parcel.php');
     }
+    else if($page==10){
+        include('./pages/parcels/view_print.php');
+    }
     else{
        echo "Welcome to my Dashboard";
     }

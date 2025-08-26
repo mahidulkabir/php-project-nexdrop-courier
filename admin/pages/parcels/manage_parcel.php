@@ -39,6 +39,13 @@
             <button type='submit' name='btnEdit' class='btn btn-warning'>
                          <i class='bi bi-pencil-square'></i>
              </button>
+             </form>
+          <form action='home.php?page=10' method='post' style='display:inline'>
+           <input type='hidden' name='id' value='$id' />
+            <button type='submit' name='btnEdit' class='btn btn-warning'>
+                        <i class='bi bi-eye'></i>
+             </button>
+             </form>
               </div>
 					</td>
 				</tr>";
