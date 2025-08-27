@@ -33,6 +33,9 @@ if(isset($_GET['page'])){
     else if($page==10){
         include('./pages/parcels/view_print.php');
     }
+    else if($page==11){
+        include('./pages/dashboard/dashboard.php');
+    }
     else{
        echo "Welcome to my Dashboard";
     }

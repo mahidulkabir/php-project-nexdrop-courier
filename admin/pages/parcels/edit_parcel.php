@@ -60,14 +60,14 @@ if(isset($_POST['btnEdit'])){
     list($_id, $order_id, $created_by, $sender_name, $sender_address, $sender_contact, $sender_nid ,  $recipient_name, $recipient_add,  $recipient_contact, $from_br_id,  $to_br_id, $weight,$risk_type, $price, $status) = $parcel_table->fetch_row();
 };
 
-?>
 
+?>
 
 
 
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title fs-3 fw-semibold">Create New Parcel</h3>
+        <h3 class="card-title fs-3 fw-semibold">Edit Parcel</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
@@ -89,7 +89,31 @@ if(isset($_POST['btnEdit'])){
                     </div>
                     <div class="form-group col-6 ">
                         <label>Created By</label> <br>
-                        <input type="text" class="form-control" name="created_by" value="<?php echo $created_by ?>">
+
+                        <!-- mysql selected dropdown menu syntax  -->
+                        <select name="created_by" class="form-control">
+                <?php
+                $sql_2 = "SELECT id, emp_id FROM users";
+                $my_query_2 = $conn->query($sql_2);
+                while ($data = mysqli_fetch_array($my_query_2)) {
+                  $br_id = $data['id'];
+                  $emp_id = $data['emp_id'];
+                ?>
+
+                  <option value='<?php echo $br_id ?>'
+                    <?php if ($br_id == $id) {
+                      echo 'selected';
+                    } ?>><?php echo $emp_id ?></option>;
+
+                  
+                  <!-- here selected gets the exact value and match the product category  -->
+                <?php
+                }
+
+                ?>
+
+
+              </select>
                     </div>
                 </div>
 
@@ -150,11 +174,61 @@ if(isset($_POST['btnEdit'])){
 
                 <div class="form-group col-lg-3 col-md-3 ">
                     <label>From Branch</label> <br>
-                    <input type="text" class="form-control" name="from_branch" value="<?php echo $from_br_id ?>" >
+
+                    <!-- selected dropdown syntax  -->
+                   <select name="from_branch" class="form-control">
+                <?php
+                $sql_2 = "SELECT id, br_name FROM branches";
+                $my_query_2 = $conn->query($sql_2);
+                while ($data = mysqli_fetch_array($my_query_2)) {
+                  $br_id = $data['id'];
+                  $br_name = $data['br_name'];
+                ?>
+
+                  <option value='<?php echo $br_id ?>'
+                    <?php if ($from_br_id == $br_id) {
+                      echo 'selected';
+                    } ?>><?php echo $br_name ?></option>;
+
+                  
+                  <!-- here selected gets the exact value and match the product category  -->
+                <?php
+                }
+
+                ?>
+
+
+              </select> 
+
+
+
                 </div>
                 <div class="form-group col-lg-3 col-md-3">
                     <label>To Branch</label> <br>
-                    <input type="text" class="form-control" name="to_branch" value="<?php echo $to_br_id ?>" >
+                    <!-- to branch syntax  -->
+                    <select name="to_branch" class="form-control">
+                <?php
+                $sql_2 = "SELECT id, br_name FROM branches";
+                $my_query_2 = $conn->query($sql_2);
+                while ($data = mysqli_fetch_array($my_query_2)) {
+                  $br_id = $data['id'];
+                  $br_name = $data['br_name'];
+                ?>
+
+                  <option value='<?php echo $br_id ?>'
+                    <?php if ($to_br_id == $br_id) {
+                      echo 'selected';
+                    } ?>><?php echo $br_name ?></option>;
+
+                  
+                  <!-- here selected gets the exact value and match the product category  -->
+                <?php
+                }
+
+                ?>
+
+
+              </select> 
                 </div>
                 <!-- parcel section  -->
                 <div class="form-group col-lg-3 col-md-3">

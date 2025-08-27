@@ -105,7 +105,7 @@ require('./configs/config.php');
 
             <!-- Dashboard item of the list  -->
             <li class="nav-item menu-open ">
-              <a href="#" class="nav-link active fw-semibold ">
+              <a href="home.php?page=11" class=" fw-semibold active nav-link">
                 <i class="fa-solid fa-database nav-icon"></i>
                 <p>
                   Dashboard
