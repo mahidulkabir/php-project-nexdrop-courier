@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2025 at 12:41 PM
+-- Generation Time: Aug 27, 2025 at 07:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,7 +47,9 @@ INSERT INTO `branches` (`id`, `br_name`, `road`, `upazilla`, `zilla`, `contact`,
 (5, 'mandari lakshmipur', 'main road', 'lakshmipur Sadar', 'lakshmipur', '01635894852', '2025-08-25 16:53:49'),
 (6, 'ctg main', 'barek building', 'anderkilla', 'chattogram', '01725365986', '2025-08-25 16:59:17'),
 (7, 'comilla main', 'bokul market', 'comilla sadar', 'comilla', '01856425888', '2025-08-25 17:00:07'),
-(8, 'dhaka main', 'Ratul plaza', 'gulshan', 'dhaka', '01718191101', '2025-08-25 17:02:31');
+(8, 'dhaka main', 'Ratul plaza', 'gulshan', 'dhaka', '01718191101', '2025-08-25 17:02:31'),
+(9, 'netrokona main', 'bus station road', 'netrokona sadar', 'netrokona', '01564123366', '2025-08-27 05:06:10'),
+(10, 'barishal main', 'rupatoli', 'barishal sadar', 'barishal', '01526447884', '2025-08-27 05:06:57');
 
 -- --------------------------------------------------------
 
@@ -80,9 +82,9 @@ CREATE TABLE `parcels` (
 --
 
 INSERT INTO `parcels` (`id`, `order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_add`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status`, `created_at`) VALUES
-(1, 'NX001', 1, 'Nayeem', 'Lakshmipur', '01744579851', '123 123 1234', 'Osman Goni', 'Barishal', '01797147515', 0, 0, 0.024, 'Low', 125, 'Recieved', '2025-08-25 00:07:21'),
-(2, 'NX002', 3, 'Hares', 'Netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 0, 0, 1.420, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:27'),
-(3, 'NX002', 3, 'Hares', ' Netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhanmondi, Dhaka', '01797147515', 0, 0, 0.485, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:46');
+(1, 'NX001', 1, 'Nayeem', 'Lakshmipur', '01744579851', '123 123 1234', 'Osman Goni', 'Barishal', '01797147515', 1, 10, 0.024, 'Low', 125, 'Recieved', '2025-08-25 00:07:21'),
+(2, 'NX002', 3, 'Hares', 'netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 9, 8, 1.420, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:27'),
+(3, 'NX003', 3, 'Hares', 'mandari lakshmipur', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 5, 7, 0.485, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:46');
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,7 @@ CREATE TABLE `users` (
   `email` varchar(40) DEFAULT NULL,
   `password` varchar(15) DEFAULT NULL,
   `contact` varchar(15) NOT NULL,
-  `role` int(11) NOT NULL,
+  `role` int(11) NOT NULL COMMENT '1 = admin, 2=employee',
   `branch_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -146,7 +148,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `parcels`

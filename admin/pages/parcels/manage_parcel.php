@@ -43,7 +43,7 @@
           <form action='home.php?page=10' method='post' style='display:inline'>
            <input type='hidden' name='id' value='$id' />
             <button type='submit' name='btnEdit' class='btn btn-warning'>
-                        <i class='bi bi-eye'></i>
+                        <i class='bi bi-printer'></i>
              </button>
              </form>
               </div>

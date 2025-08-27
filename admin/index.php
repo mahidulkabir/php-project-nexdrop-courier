@@ -15,7 +15,8 @@ require('./configs/config.php');
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
-  };
+  }
+  ;
 
 
   if (isset($_POST['btnlogin'])) {
@@ -28,29 +29,40 @@ require('./configs/config.php');
     $password_given = mysqli_real_escape_string($conn, $password_given);
 
     // query template 
-    $query = "SELECT first_name, email, password FROM users WHERE email =? and password =?";
+    // $query = "SELECT first_name, email, password FROM users WHERE email =? and password =?";
+    $query = "SELECT emp_id, first_name, email, password, role FROM users WHERE email =? and password =?";
+
 
     // prepared statement 
     if ($stmt = mysqli_prepare($conn, $query)) {
       mysqli_stmt_bind_param($stmt, "ss", $email_given, $password_given); // binding values
       mysqli_stmt_execute($stmt); // execute prepared stmt
       mysqli_stmt_store_result($stmt); // storing result
-
+  
       if (mysqli_stmt_num_rows($stmt) == 1) {
         // bind the actual columns from result to PHP variables
-        mysqli_stmt_bind_result($stmt, $_first_name, $_email, $_password);
-        mysqli_stmt_fetch($stmt); // fetch the data into variables
+        // mysqli_stmt_bind_result($stmt, $_first_name, $_email, $_password);
+        // mysqli_stmt_bind_result($stmt, $_id, $_first_name, $_role, $_email, $_password);
+        mysqli_stmt_bind_result($stmt, $_emp_id, $_first_name, $_email, $_password, $_role);
 
+        mysqli_stmt_fetch($stmt); // fetch the data into variables
+  
         session_start();
-        $_SESSION['s_f_name'] = $_first_name; // now $_first_name is defin
+        $_SESSION['s_id'] = $_emp_id;           // user id
+        $_SESSION['s_f_name'] = $_first_name;
+        $_SESSION['s_role'] = $_role;
+
         header('location:home.php');
       } else {
         $error = "Invalid email or password";
         echo $error;
-      };
-    };
+      }
+      ;
+    }
+    ;
     mysqli_stmt_close($stmt);
-  };
+  }
+  ;
   ?>
 
 

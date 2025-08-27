@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_regenerate_id(true);
-if(! isset($_SESSION['s_f_name'])){
+if(! isset($_SESSION['s_id'])){
 header("location: index.php");
 };
 require('./includes/header.php');
@@ -36,7 +36,11 @@ require('./configs/config.php');
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#admin_modal">
 
-              <img src="../assets/img/nfavicon.png" class="img-circle elevation-2" alt="User Image"> &nbsp;  Admin
+              <img src="../assets/img/nfavicon.png" class="img-circle elevation-2" alt="User Image"> &nbsp; 
+              
+              <?php echo ($_SESSION['s_role']==1) ? 'Admin' :  'Employee' ;?>
+                          <!-- (Condition) ? (Statement1) : (Statement2); -->
+
             </button>
           </div>
         </div>
@@ -110,7 +114,8 @@ require('./configs/config.php');
 
             </li>
             <!-- fist item of the list  -->
-            <li class="nav-item menu-open">
+             <!-- Employee SECTION  -->
+            <li class="nav-item menu-open <?php  if($_SESSION['s_role']!=1) { echo 'd-none'; } ?> ">
               <a href="#" class="nav-link active fw-semibold ">
                 <i class="nav-icon fa-solid fa-users"></i>
                 <p>
@@ -135,7 +140,8 @@ require('./configs/config.php');
               </ul>
             </li>
             <!-- second item of the list  -->
-            <li class="nav-item menu-open">
+            <!-- Branch SECTION  -->
+            <li class="nav-item menu-open <?php  if($_SESSION['s_role']!=1) { echo 'd-none'; } ?> ">
               <a href="#" class="nav-link active fw-semibold">
                 <i class="fa-solid fa-house-flag nav-icon"></i>
                 <p>
@@ -159,6 +165,7 @@ require('./configs/config.php');
               </ul>
             </li>
             <!-- third item of the list  -->
+            <!-- Parcel SECTION  -->
             <li class="nav-item menu-open">
               <a href="" class="nav-link active fw-semibold">
                 <i class="fa-solid fa-boxes-stacked nav-icon"></i>
@@ -183,6 +190,7 @@ require('./configs/config.php');
               </ul>
             </li>
             <!-- fourth item of the list  -->
+            <!-- Parcel Status SECTION  -->
             <li class="nav-item menu-open">
               <a href="#" class="nav-link active fw-semibold">
                 <i class="fa-solid fa-parachute-box nav-icon"></i>
@@ -237,6 +245,7 @@ require('./configs/config.php');
               </ul>
             </li>
             <!-- fifth item of the list  -->
+            <!-- Parcel Track SECTION  -->
             <li class="nav-item menu-open">
               <a href="#" class="nav-link fw-semibold  active">
                 <i class="fa-solid fa-magnifying-glass nav-icon"></i>
