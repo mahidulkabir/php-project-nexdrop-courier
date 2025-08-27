@@ -22,7 +22,7 @@
       <tbody>
         <?php
         $user_add = $conn->query("select * from users");
-        while (list($id, $f_name, $l_name, $email, $password, $contact, $role, $br_id) = $user_add->fetch_row()) {
+        while (list($id, $emp_id, $f_name, $l_name, $email, $password, $contact, $role, $br_id) = $user_add->fetch_row()) {
           echo "<tr> 
 					
 					<td>$f_name</td>
