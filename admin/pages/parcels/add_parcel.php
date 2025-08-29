@@ -1,3 +1,22 @@
+<?php
+// ===== UNIQUE ORDER ID GENERATOR =====
+function generateUniqueOrderId($conn)
+{
+    do {
+        $random_number = rand(1000, 999999); // generate 4-digit number
+        $order_id = "NEX" . $random_number;
+
+        // check in database
+        $check_sql = "SELECT id FROM parcels WHERE order_id = '$order_id' LIMIT 1";
+        $check_result = $conn->query($check_sql);
+    } while ($check_result->num_rows > 0); // keep looping if exists
+
+    return $order_id;
+}
+
+// Generate a new order ID
+$order_id = generateUniqueOrderId($conn);
+?>
 <div class="card card-primary">
     <div class="card-header">
         <h3 class="card-title fs-3 fw-semibold">Create New Parcel</h3>
@@ -14,24 +33,20 @@
                     <h3>Branch Information</h3>
                     <div class="form-group col-6 ">
 
-                        <label>Order ID</label> <br>
-                        <input type="text" class="form-control" name="order_id" placeholder="Enter Order ID">
+                        <label class="form-label">Order ID</label>
+                        <input type="text" class="form-control" name="order_id"
+                            value="<?php echo $order_id; ?>" readonly>
                     </div>
                     <div class="form-group col-6 ">
                         <label>Created By</label> <br>
-                        <select name="created_by" class="form-control">
-                            <?php
-                            $sql = "SELECT id, emp_id FROM users";
-                            $my_query = $conn->query($sql);
-                            while ($data = mysqli_fetch_array($my_query)) {
-                                $data_id = $data['id'];
-                                $data_name = $data['emp_id'];
-                                echo "<option value='$data_id'> $data_name </option>";
-                            }
-                            ?>
-                            </select>
+                        <input type="text" class="form-control" name="created_by"
+                            value="<?php echo $_SESSION['s_id']; ?>" readonly>
+
+
+
                     </div>
                 </div>
+
 
                 <div class="col-lg-12 shadow row my-4 justify-content-between">
                     <!-- sender section  -->
@@ -91,17 +106,29 @@
                     <div class="form-group col-lg-3 col-md-3 ">
                         <label>From Branch</label> <br>
                         <!-- <input type="text"  placeholder="Enter Sender Branch"> -->
-                        <select class="form-control" name="from_branch">
+                        <select name="from_branch" class="form-control">
                             <?php
-                            $sql = "SELECT id, br_name FROM branches";
-                            $my_query = $conn->query($sql);
-                            while ($data = mysqli_fetch_array($my_query)) {
-                                $data_id = $data['id'];
-                                $data_name = $data['br_name'];
-                                echo "<option value='$data_id'> $data_name </option>";
-                            }
+                            $sql_2 = "SELECT id, br_name FROM branches";
+                            $my_query_2 = $conn->query($sql_2);
+                            while ($data = mysqli_fetch_array($my_query_2)) {
+                                $user_id = $data['id'];
+                                $emp_id = $data['br_name'];
                             ?>
-                            </select>
+
+                                <option value='<?php echo $user_id ?>'
+                                    <?php if ($user_id == $_SESSION['s_br_id']) {
+                                        echo 'selected';
+                                    } ?> ><?php echo $emp_id ?></option>;
+
+
+                                <!-- here selected gets the exact value and match the product category  -->
+                            <?php
+                            }
+
+                            ?>
+
+
+                        </select>
                     </div>
                     <div class="form-group col-lg-3 col-md-3">
                         <label>To Branch</label> <br>
@@ -116,7 +143,9 @@
                                 echo "<option value='$data_id'> $data_name </option>";
                             }
                             ?>
-                            </select>
+                        </select>
+
+
                     </div>
                     <!-- parcel section  -->
                     <div class="form-group col-lg-3 col-md-3">
@@ -134,7 +163,7 @@
                     </div>
                     <div class="form-group col-lg-6 col-md-6">
                         <label>Parcel Status</label> <br>
-                        <input type="text" class="form-control" name="parcel_status" placeholder="Enter Parcel Status">
+                        <input type="text" class="form-control" name="parcel_status" value="1" placeholder="Accepted By Courier">
                     </div>
                 </div>
 
@@ -181,7 +210,7 @@ if (isset($_POST['btn-submit-user'])) {
 
     $parcel_status = $_POST['parcel_status'];
 
-    $sql = "INSERT INTO `parcels`(`order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_add`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status`)  VALUES ('$order_id','$created_by','$sender_name','$sender_address','$sender_contact','$sender_nid','$recipient_name','$recipient_address','$recipient_contact','$from_branch','$to_branch','$parcel_weight','$parcel_risk_level','$parcel_price','$parcel_status')";
+    $sql = "INSERT INTO `parcels`(`order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_add`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status_id`)  VALUES ('$order_id','$created_by','$sender_name','$sender_address','$sender_contact','$sender_nid','$recipient_name','$recipient_address','$recipient_contact','$from_branch','$to_branch','$parcel_weight','$parcel_risk_level','$parcel_price','$parcel_status')";
 
     $result = $conn->query($sql);
 
