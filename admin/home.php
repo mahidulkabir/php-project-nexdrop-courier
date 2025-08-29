@@ -1,5 +1,6 @@
 <?php
 session_start();
+$user_branch_id = $_SESSION['s_br_id'];
 session_regenerate_id(true);
 if(! isset($_SESSION['s_id'])){
 header("location: index.php");

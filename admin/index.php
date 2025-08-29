@@ -30,7 +30,7 @@ require('./configs/config.php');
 
     // query template 
     // $query = "SELECT first_name, email, password FROM users WHERE email =? and password =?";
-    $query = "SELECT emp_id, first_name, email, password, role FROM users WHERE email =? and password =?";
+    $query = "SELECT emp_id, first_name, email, password, role, branch_id FROM users WHERE email =? and password =?";
 
 
     // prepared statement 
@@ -43,7 +43,7 @@ require('./configs/config.php');
         // bind the actual columns from result to PHP variables
         // mysqli_stmt_bind_result($stmt, $_first_name, $_email, $_password);
         // mysqli_stmt_bind_result($stmt, $_id, $_first_name, $_role, $_email, $_password);
-        mysqli_stmt_bind_result($stmt, $_emp_id, $_first_name, $_email, $_password, $_role);
+        mysqli_stmt_bind_result($stmt, $_emp_id, $_first_name, $_email, $_password, $_role, $_branch_id);
 
         mysqli_stmt_fetch($stmt); // fetch the data into variables
   
@@ -51,6 +51,7 @@ require('./configs/config.php');
         $_SESSION['s_id'] = $_emp_id;           // user id
         $_SESSION['s_f_name'] = $_first_name;
         $_SESSION['s_role'] = $_role;
+        $_SESSION['s_br_id'] = $_branch_id;
 
         header('location:home.php');
       } else {

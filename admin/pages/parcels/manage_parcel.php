@@ -27,6 +27,9 @@
                         FROM parcels p
                         JOIN branches fb ON p.from_br_id = fb.id
                         JOIN branches tb ON p.to_br_id = tb.id";
+        if($user_branch_id != 0){
+          $sql .= " WHERE p.from_br_id = $user_branch_id OR p.to_br_id = $user_branch_id";
+        };
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
 
