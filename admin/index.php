@@ -53,7 +53,7 @@ require('./configs/config.php');
         $_SESSION['s_role'] = $_role;
         $_SESSION['s_br_id'] = $_branch_id;
 
-        header('location:home.php');
+        header('location:home.php?page=11');
       } else {
         $error = "Invalid email or password";
         echo $error;

@@ -248,7 +248,7 @@ require('./configs/config.php');
             <!-- fifth item of the list  -->
             <!-- Parcel Track SECTION  -->
             <li class="nav-item menu-open">
-              <a href="#" class="nav-link fw-semibold  active">
+              <a href="home.php?page=12" class="nav-link fw-semibold  active">
                 <i class="fa-solid fa-magnifying-glass nav-icon"></i>
                 <p>
                   Parcel Track
