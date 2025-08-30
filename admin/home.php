@@ -192,7 +192,7 @@ require('./configs/config.php');
             </li>
             <!-- fourth item of the list  -->
             <!-- Parcel Status SECTION  -->
-            <li class="nav-item menu-open">
+            <!-- <li class="nav-item menu-open">
               <a href="#" class="nav-link active fw-semibold">
                 <i class="fa-solid fa-parachute-box nav-icon"></i>
                 <p>
@@ -244,7 +244,7 @@ require('./configs/config.php');
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> -->
             <!-- fifth item of the list  -->
             <!-- Parcel Track SECTION  -->
             <li class="nav-item menu-open">
