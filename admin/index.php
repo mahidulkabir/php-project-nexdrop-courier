@@ -4,6 +4,24 @@ require('./includes/header.php');
 require('./configs/config.php');
 
 ?>
+<!-- Extra CSS -->
+  <style>
+    .card {
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+    .form-control:focus {
+      border-color: #4e73df;
+      box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+    }
+    .btn:hover {
+      background: linear-gradient(135deg, #1e3c72, #4e73df) !important;
+      transform: scale(1.02);
+    }
+  </style>
 
 <body class="hold-transition login-page starter-page-page">
 
@@ -54,10 +72,7 @@ require('./configs/config.php');
         $_SESSION['s_br_id'] = $_branch_id;
 
         header('location:home.php?page=11');
-      } else {
-        $error = "Invalid email or password";
-        echo $error;
-      }
+      } 
       ;
     }
     ;
@@ -67,65 +82,69 @@ require('./configs/config.php');
   ?>
 
 
-  <div class="login-box">
-    <!-- /.login-logo -->
-    <div class="card card-outline card-primary">
-      <div class="card-header text-center">
-        <a href="../../index2.html" class="h1"><b>NexDrop Courier</b></a>
+      <div class="login-box">
+    <div class="card shadow-lg border-0 rounded-4">
+      <!-- Header -->
+      <div class="card-header text-center text-white rounded-top" 
+           style="background: linear-gradient(135deg, #4e73df, #1e3c72);">
+        <h3 class="mb-0 fw-bold">NexDrop Courier</h3>
+        <small class="text-light">The next step in delivery</small>
       </div>
-      <div class="card-body">
-        <p class="login-box-msg">Sign in to start working</p>
+
+      <!-- Body -->
+      <div class="card-body p-4">
+        <p class="text-center text-muted fw-semibold mb-4">Admin and Employee login only</p>
+
+        <?php if (!empty($error)) { ?>
+          <div class="alert alert-danger py-2 text-center">
+            <?= $error ?>
+          </div>
+        <?php } ?>
 
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-          <div class="input-group mb-3">
-            <input type="email" class="form-control" name="email" placeholder="Email">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label fw-semibold">Email</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light"><i class="fas fa-envelope text-primary"></i></span>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
             </div>
           </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" name="password" placeholder="Password">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label fw-semibold">Password</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light"><i class="fas fa-lock text-primary"></i></span>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
             </div>
           </div>
-          <div class="row">
-            <div class="col-8">
-              <div class="icheck-primary">
-                <input type="checkbox" id="remember">
-                <label for="remember">
-                  Remember Me
-                </label>
-              </div>
+
+          <!-- Remember + Forgot -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-check">
+              <input class="form-check-input border-primary" type="checkbox" id="remember">
+              <label class="form-check-label" for="remember">Remember Me</label>
             </div>
-            <!-- /.col -->
-            <div class="col-4">
-
-              <button type="submit" name="btnlogin" class="btn btn-primary btn-block">Sign In</button>
-
-
-            </div>
-            <!-- /.col -->
+            <a href="forgot-password.html" class="small text-decoration-none text-primary fw-semibold">Forgot password?</a>
           </div>
+
+          <!-- Submit -->
+          <button type="submit" name="btnlogin" 
+                  class="btn w-100 fw-semibold text-white" 
+                  style="background: linear-gradient(135deg, #4e73df, #1e3c72); border: none; border-radius: 8px; transition: 0.3s;">
+            <i class="fas fa-sign-in-alt me-1"></i> Sign In
+          </button>
         </form>
-
-
-        <!-- /.social-auth-links -->
-
-        <p class="mb-1">
-          <a href="forgot-password.html">I forgot my password</a>
-        </p>
-
       </div>
-      <!-- /.card-body -->
     </div>
-    <!-- /.card -->
   </div>
-  <!-- /.login-box -->
+
+  
+
+  
+
+
 
   <?php
   require('./includes/scripts.php');
