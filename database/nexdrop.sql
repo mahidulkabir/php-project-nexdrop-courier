@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2025 at 07:12 AM
+-- Generation Time: Aug 30, 2025 at 03:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -73,7 +73,7 @@ CREATE TABLE `parcels` (
   `weight` decimal(20,3) NOT NULL,
   `risk_type` varchar(50) NOT NULL,
   `price` int(10) NOT NULL,
-  `status` varchar(100) NOT NULL,
+  `status_id` int(100) NOT NULL COMMENT '1 = Accepted by courier,\r\n2 = In transit,\r\n3 = Arrived at destination,\r\n4 = Ready for delivery,\r\n5 = Delivered,\r\n6 = Delivery unsuccessful',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -81,10 +81,34 @@ CREATE TABLE `parcels` (
 -- Dumping data for table `parcels`
 --
 
-INSERT INTO `parcels` (`id`, `order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_add`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status`, `created_at`) VALUES
-(1, 'NX001', 1, 'Nayeem', 'Lakshmipur', '01744579851', '123 123 1234', 'Osman Goni', 'Barishal', '01797147515', 1, 10, 0.024, 'Low', 125, 'Recieved', '2025-08-25 00:07:21'),
-(2, 'NX002', 3, 'Hares', 'netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 9, 8, 1.420, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:27'),
-(3, 'NX003', 3, 'Hares', 'mandari lakshmipur', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 5, 7, 0.485, 'Low', 125, 'Recieved_by_branch', '2025-08-25 01:17:46');
+INSERT INTO `parcels` (`id`, `order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_add`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status_id`, `created_at`) VALUES
+(1, 'NEX1154', 2, 'Nayeem', 'Lakshmipur', '01744579851', '123 123 1234', 'Osman Goni', 'Barishal', '01797147515', 1, 10, 0.024, 'Low', 125, 2, '2025-08-25 00:07:21'),
+(2, 'NEX2212', 9, 'Hares', 'netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 9, 8, 1.420, 'Low', 125, 3, '2025-08-25 01:17:27'),
+(3, 'NEX1454', 5, 'Hares', 'mandari lakshmipur', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 5, 7, 0.485, 'Low', 125, 5, '2025-08-25 01:17:46'),
+(4, 'NEX304060', 10, 'sajid', 'barisal', '01341235456', '123 123 1234', 'konok', 'netrokona', '01797147515', 10, 9, 0.485, 'Low', 130, 1, '2025-08-29 12:20:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `parcel_status`
+--
+
+CREATE TABLE `parcel_status` (
+  `id` int(11) NOT NULL,
+  `status_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `parcel_status`
+--
+
+INSERT INTO `parcel_status` (`id`, `status_name`) VALUES
+(1, 'Accepted By Courier'),
+(2, 'In Transit'),
+(3, 'Arrived at Destination'),
+(4, 'Ready for Delivery'),
+(5, 'Delivered'),
+(6, 'Delivery Unsuccessful');
 
 -- --------------------------------------------------------
 
@@ -110,13 +134,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `emp_id`, `first_name`, `last_name`, `email`, `password`, `contact`, `role`, `branch_id`, `created_at`) VALUES
-(1, 'nexemp', 'Mahidul', 'Kabir', 'mahidulkabir8@gmail.com', '123', '01706513542', 1, 0, '2025-08-25 17:12:55'),
-(2, 'nexemp001', 'Osman ', 'Goni', 'Osman@goni.com', '1234', '01718191101', 2, 2, '2025-08-25 17:12:45'),
-(3, 'nexemp002', 'Meshkat ', 'Kabir', 'meshkat@gmail.com', '123', '01718191101', 2, 4, '2025-08-25 17:13:03'),
+(1, 'admin', 'Mahidul', 'Kabir', 'mahidulkabir8@gmail.com', '123', '01706513542', 1, 0, '2025-08-30 01:36:31'),
+(2, 'nexemp001', 'Osman ', 'Goni', 'Osman@goni.com', '1234', '01718191101', 2, 1, '2025-08-28 23:41:09'),
+(3, 'nexemp002', 'Meshkat ', 'Kabir', 'meshkat@gmail.com', '123', '01718191101', 2, 3, '2025-08-28 23:41:18'),
 (5, 'nexemp003', 'casio', 'marma', 'marma@casio.com', '456', '0195124856', 2, 5, '2025-08-25 17:17:04'),
 (6, 'nexemp004', 'junayed', 'siddique', 'siddique@junayed.com', '123', '01658452236', 2, 6, '2025-08-25 17:19:03'),
 (7, 'nexemp005', 'bilashi', 'banu', 'banu@bilashi.com', '123', '01365458595', 2, 7, '2025-08-25 17:19:52'),
-(8, 'nexemp006', 'saiful', 'islam', 'islam@saiful.com', '123', '01426663314', 2, 8, '2025-08-25 17:20:38');
+(8, 'nexemp006', 'saiful', 'islam', 'islam@saiful.com', '123', '01426663314', 2, 8, '2025-08-25 17:20:38'),
+(9, 'nexemp009', 'shoriful ', 'hoq', 'hoq@shoriful.com', '123', '01456778887', 2, 9, '2025-08-28 23:39:18'),
+(10, 'nexemp010', 'miraj ', 'billah', 'billah@miraz.com', '123', '01645232344', 2, 10, '2025-08-28 23:39:34');
 
 --
 -- Indexes for dumped tables
@@ -132,6 +158,12 @@ ALTER TABLE `branches`
 -- Indexes for table `parcels`
 --
 ALTER TABLE `parcels`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `parcel_status`
+--
+ALTER TABLE `parcel_status`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -154,13 +186,19 @@ ALTER TABLE `branches`
 -- AUTO_INCREMENT for table `parcels`
 --
 ALTER TABLE `parcels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `parcel_status`
+--
+ALTER TABLE `parcel_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

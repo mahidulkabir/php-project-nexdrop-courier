@@ -1,7 +1,7 @@
-<?php require_once('./includes/head.php')?>
+<?php require_once('./includes/head.php') ?>
 
 <body class="starter-page-page">
-<?php require_once('./includes/navbar.php')?>
+  <?php require_once('./includes/navbar.php') ?>
 
 
   <main class="main">
@@ -18,12 +18,17 @@
               more than just packages.
               Experience smooth tracking, doorstep service, and trusted care every step of the way.
               Take the next step in delivery with NEXDROP — where speed meets reliability.</p>
+            <!-- tracking system  -->
+            <div>
+              <form id="trackForm" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
+                data-aos-delay="200">
+                <input type="text" name="order_id" id="order_id" class="form-control" placeholder="Enter Order ID (e.g. NEX1234)" required>
 
-            <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
-              data-aos-delay="200">
-              <input type="text" class="form-control" placeholder="Place order ID">
-              <button type="submit" class="btn btn-primary">Track</button>
-            </form>
+                <button type="submit" class="btn btn-primary">Track</button>
+              </form>
+              <div id="trackingResultPlaceholder" class="mt-3"></div>
+            </div>
+
 
             <div class="row gy-4" data-aos="fade-up" data-aos-delay="300">
 
@@ -69,7 +74,20 @@
 
         </div>
       </div>
-
+      <!-- Tracking Result Modal -->
+      <div class="modal fade" id="trackingModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="trackingModalLabel">Parcel Tracking</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="trackingResultModal">
+              <!-- AJAX result will load here -->
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- /Hero Section -->
 
@@ -309,40 +327,40 @@
       <p>Share your complaints or suggestions anytime — we listen, act, and improve to serve you better. </p>
 
       <!-- form part  -->
-       <div class="col-lg-8 mx-auto mt-5">
-      <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-        <div class="row gy-4">
+      <div class="col-lg-8 mx-auto mt-5">
+        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
 
-          <div class="col-md-6">
-            <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            </div>
+
+            <div class="col-md-6 ">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+
+              <button type="submit" class="btn btn-outline-dark">Send Message</button>
+
+            </div>
+
           </div>
-
-          <div class="col-md-6 ">
-            <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-          </div>
-
-          <div class="col-md-12">
-            <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-          </div>
-
-          <div class="col-md-12">
-            <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-          </div>
-
-          <div class="col-md-12 text-center">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
-
-            <button type="submit" class="btn btn-outline-dark">Send Message</button>
-
-          </div>
-
-        </div>
-      </form>
-    </div><!-- End Contact Form -->
+        </form>
+      </div><!-- End Contact Form -->
     </div>
-    
+
 
     <!-- Faq Section -->
     <section id="faq" class="faq section">
@@ -440,6 +458,27 @@
   <?php require_once('./includes/scripts.php') ?>
 
 
+  <script>
+    document.getElementById("trackForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let orderId = document.getElementById("order_id").value;
+
+      fetch("./admin/pages/parcels/ajax_track_parcel.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: "order_id=" + encodeURIComponent(orderId)
+        })
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("trackingResultModal").innerHTML = data; // inject inside modal
+          let trackingModal = new bootstrap.Modal(document.getElementById("trackingModal"));
+          trackingModal.show();
+        })
+        .catch(err => console.error(err));
+    });
+  </script>
 
 </body>
 
