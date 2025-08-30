@@ -5,44 +5,59 @@
         <button type="submit" class="btn btn-primary">Track</button>
     </form>
 
-    <div id="trackingResult" class="mt-3"></div>
+    <div id="trackingResultPlaceholder" class="mt-3"></div>
 </div>
 
 
 <div class="d-flex justify-content-evenly">
-<div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-info">
-        <div class="inner">
-            <h3>150</h3>
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>150</h3>
 
-            <p>Incoming Parcels</p>
+                <p>Incoming Parcels</p>
+            </div>
+            <div class="icon">
+                <i class="bi bi-arrow-down-circle"></i>
+            </div>
+            <a href="#" class="small-box-footer">See all <i class="fas fa-arrow-circle-right"></i></a>
         </div>
-        <div class="icon">
-            <i class="bi bi-arrow-down-circle"></i>
+    </div>
+
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>53</h3>
+
+                <p>Outgoing Parcels</p>
+            </div>
+            <div class="icon">
+                <i class="bi bi-arrow-up-circle"></i>
+            </div>
+            <a href="#" class="small-box-footer">See array_fill<i class="fas fa-arrow-circle-right"></i></a>
         </div>
-        <a href="#" class="small-box-footer">See all <i class="fas fa-arrow-circle-right"></i></a>
     </div>
 </div>
 
-<div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-success">
-        <div class="inner">
-            <h3>53</h3>
 
-            <p>Outgoing Parcels</p>
-        </div>
-        <div class="icon">
-            <i class="bi bi-arrow-up-circle"></i>
-        </div>
-        <a href="#" class="small-box-footer">See array_fill<i class="fas fa-arrow-circle-right"></i></a>
+
+
+<!-- Tracking Result Modal -->
+<div class="modal fade" id="trackingModal" tabindex="-1"    >
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="trackingModalLabel">Parcel Tracking</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="trackingResultModal">
+        <!-- AJAX result will load here -->
+      </div>
     </div>
+  </div>
 </div>
-</div>
-
-
-<!-- script section  -->
 
 <script>
 document.getElementById("trackForm").addEventListener("submit", function(e) {
@@ -56,9 +71,11 @@ document.getElementById("trackForm").addEventListener("submit", function(e) {
     })
     .then(res => res.text())
     .then(data => {
-        document.getElementById("trackingResult").innerHTML = data;
+        document.getElementById("trackingResultModal").innerHTML = data; // inject inside modal
+        let trackingModal = new bootstrap.Modal(document.getElementById("trackingModal"));
+        trackingModal.show();
     })
     .catch(err => console.error(err));
 });
-</script>
 
+</script>
