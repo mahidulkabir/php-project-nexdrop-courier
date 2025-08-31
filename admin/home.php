@@ -2,13 +2,61 @@
 session_start();
 $user_branch_id = $_SESSION['s_br_id'];
 session_regenerate_id(true);
-if(! isset($_SESSION['s_id'])){
-header("location: index.php");
+if (! isset($_SESSION['s_id'])) {
+  header("location: index.php");
 };
+
+
+if (isset($_POST['logout'])) {
+  session_destroy();
+  header("location: index.php");
+};
+
 require('./includes/header.php');
 
 require('./configs/config.php');
 ?>
+<style>
+  /* Sidebar menu items transparency */
+.main-sidebar .nav-sidebar .active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff !important;
+  border-radius: 8px;
+  margin: 2px 8px;
+  transition: all 0.3s ease;
+}
+
+.main-sidebar .nav-sidebar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.02);
+}
+
+/* Body gradient - softer blue */
+body {
+  background: linear-gradient(135deg, #5a8bd6, #00c6ff);
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+/* Content wrapper semi-transparent */
+.content-wrapper {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Navbar gradient - softer blue */
+.main-header.navbar {
+  background: linear-gradient(135deg, #5a8bd6, #00c6ff);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.main-header.navbar .navbar-nav .nav-link,
+.main-header.navbar .user-panel .btn {
+  color: #fff;
+}
+</style>
+
+
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -30,17 +78,17 @@ require('./configs/config.php');
       <ul class="navbar-nav ml-auto">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-           
+
           </div>
           <div class="info">
-           
+
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#admin_modal">
 
-              <img src="../assets/img/nfavicon.png" class="img-circle elevation-2" alt="User Image"> &nbsp; 
-              
-              <?php echo ($_SESSION['s_role']==1) ? 'Admin' :  'Employee' ;?>
-                          <!-- (Condition) ? (Statement1) : (Statement2); -->
+              <img src="../assets/img/nfavicon.png" class="img-circle elevation-2" alt="User Image" > &nbsp;
+
+              <?php echo ($_SESSION['s_role'] == 1) ? 'Admin' :  'Employee'; ?>
+              <!-- (Condition) ? (Statement1) : (Statement2); -->
 
             </button>
           </div>
@@ -49,34 +97,29 @@ require('./configs/config.php');
       </ul>
     </nav>
     <!-- Modal for top right admin button -->
-    <div class="modal fade" id="admin_modal" tabindex="-1" >
+    <div class="modal fade" id="admin_modal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Admin Panel </h1> -->
             <h4>Welcome <?php echo $_SESSION['s_f_name'] ?></h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" > </button>
-           
+            <button type="button" class="btn-close" data-bs-dismiss="modal"> </button>
+
           </div>
           <div class="modal-body">
-            
+
             <button type="button" class="btn btn-sm btn-outline-danger mb-3" data-bs-dismiss="modal">Edit Profile</button> <br>
 
 
-            <button type="button" class="btn btn-sm btn-outline-success" data-bs-dismiss="modal">View Profile</button> 
-            
+            <button type="button" class="btn btn-sm btn-outline-success" data-bs-dismiss="modal">View Profile</button>
+
           </div>
           <div class="modal-footer">
             <form method="POST">
               <button type="submit" class="btn btn-sm btn-secondary" data-bs-dismiss="modal" name="logout">LogOut</button>
 
             </form>
-            <?php
-            if(isset($_POST['logout'])){
-              session_destroy();
-              header("location: index.php");
-            };
-            ?>
+
           </div>
         </div>
       </div>
@@ -84,10 +127,10 @@ require('./configs/config.php');
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary bg-info  elevation-4">
+    <aside class="main-sidebar elevation-4" style="background: linear-gradient(135deg, #0d6efd, #00c6ff);">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-        <img src="../assets/img/nfavicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="../assets/img/nfavicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" >
         <span class="brand-text font-weight-bold text-dark">NexDrop Courier</span>
       </a>
 
@@ -101,7 +144,7 @@ require('./configs/config.php');
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-           
+
 
 
             <!-- Dashboard item of the list  -->
@@ -115,10 +158,12 @@ require('./configs/config.php');
 
             </li>
             <!-- fist item of the list  -->
-             <!-- Employee SECTION  -->
-            <li class="nav-item menu-open <?php  if($_SESSION['s_role']!=1) { echo 'd-none'; } ?> ">
+            <!-- Employee SECTION  -->
+            <li class="nav-item menu-open <?php if ($_SESSION['s_role'] != 1) {
+                                            echo 'd-none';
+                                          } ?> ">
               <a href="#" class="nav-link active fw-semibold ">
-                <i class="nav-icon fa-solid fa-users"></i>
+                <i class="nav-icon  fa-solid fa-users"></i>
                 <p>
                   Employees
                   <i class="right fas fa-angle-left"></i>
@@ -142,7 +187,9 @@ require('./configs/config.php');
             </li>
             <!-- second item of the list  -->
             <!-- Branch SECTION  -->
-            <li class="nav-item menu-open <?php  if($_SESSION['s_role']!=1) { echo 'd-none'; } ?> ">
+            <li class="nav-item menu-open <?php if ($_SESSION['s_role'] != 1) {
+                                            echo 'd-none';
+                                          } ?> ">
               <a href="#" class="nav-link active fw-semibold">
                 <i class="fa-solid fa-house-flag nav-icon"></i>
                 <p>
@@ -192,59 +239,18 @@ require('./configs/config.php');
             </li>
             <!-- fourth item of the list  -->
             <!-- Parcel Status SECTION  -->
-            <!-- <li class="nav-item menu-open">
-              <a href="#" class="nav-link active fw-semibold">
+            <li class="nav-item menu-open <?php if ($_SESSION['s_role'] != 1) {
+                                            echo 'd-none';
+                                          } ?>">
+              <a href="home.php?page=13" class="nav-link active fw-semibold">
                 <i class="fa-solid fa-parachute-box nav-icon"></i>
                 <p>
-                  Parcel Status
+                  Parcel Reports
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="home.php?page=10" class="nav-link fw-semibold text-dark">
-                    <i class="fa-solid fa-people-carry-box nav-icon"></i>
-                    <p>Accepted by courier</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link fw-semibold text-dark">
-                    <i class="fa-solid fa-dolly nav-icon"></i>
-                    <p>Shipped</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link fw-semibold text-dark">
-                    <i class="fa-solid fa-truck-fast nav-icon"></i>
-                    <p>In-transit</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link fw-semibold text-dark">
-                    <i class="fa-solid fa-plane-arrival nav-icon"></i>
-                    <p>Arrived at Destination</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link fw-semibold text-dark">
-                    <i class="fa-solid fa-file-circle-check nav-icon"></i>
-                    <p>Ready for Delivery</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link fw-semibold text-dark">
-                    <i class="fa-solid fa-circle-check nav-icon"></i>
-                    <p>Delivered</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link fw-semibold text-dark">
-                    <i class="fa-solid fa-thumbs-down nav-icon"></i>
-                    <p>Delivery Unseccessful</p>
-                  </a>
-                </li>
-              </ul>
-            </li> -->
+              
+            </li>
             <!-- fifth item of the list  -->
             <!-- Parcel Track SECTION  -->
             <li class="nav-item menu-open">

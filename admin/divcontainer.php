@@ -39,6 +39,9 @@ if(isset($_GET['page'])){
     else if ($page == 12){
         include('./pages/parcels/track_parcel.php');
     }
+    else if($page==13){
+        include('./pages/reports/report.php');
+    }
     else{
        echo "Welcome to my Dashboard";
     }
