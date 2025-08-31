@@ -243,10 +243,10 @@ body {
                                             echo 'd-none';
                                           } ?>">
               <a href="home.php?page=13" class="nav-link active fw-semibold">
-                <i class="fa-solid fa-parachute-box nav-icon"></i>
+                <i class="fa-solid fa-book nav-icon"></i>
                 <p>
                   Parcel Reports
-                  <i class="right fas fa-angle-left"></i>
+                 
                 </p>
               </a>
               
