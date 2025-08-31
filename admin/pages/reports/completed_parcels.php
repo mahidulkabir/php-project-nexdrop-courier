@@ -19,7 +19,7 @@ require_once("../../configs/config.php");
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
-          <h2 class="mb-4">All Parcels</h2>
+          <h2 class="mb-4">Completed Parcels</h2>
 
           <table class="table table-bordered table-striped">
             <thead>
@@ -34,7 +34,7 @@ require_once("../../configs/config.php");
             </thead>
             <tbody>
               <?php
-              $sql = "SELECT * FROM parcels ORDER BY created_at DESC";
+              $sql = "SELECT * FROM parcels WHERE status_id = 5 ORDER BY created_at DESC";
               $result = mysqli_query($conn, $sql);
               while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>
