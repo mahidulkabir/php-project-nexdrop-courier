@@ -42,6 +42,18 @@ if(isset($_GET['page'])){
     else if($page==13){
         include('./pages/reports/report.php');
     }
+    else if($page==14){
+        include('./pages/reports/all_parcels.php');
+    }
+    else if($page==15){
+        include('./pages/reports/completed_parcels.php');
+    }
+    else if($page==16){
+        include('./pages/reports/processing_parcel.php');
+    }
+    else if($page==17){
+        include('./pages/reports/unsuccessful_delivery.php');
+    }
     else{
        echo "Welcome to my Dashboard";
     }
