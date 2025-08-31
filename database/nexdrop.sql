@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2025 at 03:48 AM
+-- Generation Time: Aug 31, 2025 at 04:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -83,9 +83,11 @@ CREATE TABLE `parcels` (
 
 INSERT INTO `parcels` (`id`, `order_id`, `created_by`, `sender_name`, `sender_address`, `sender_contact`, `sender_nid`, `recipient_name`, `recipient_add`, `recipient_contact`, `from_br_id`, `to_br_id`, `weight`, `risk_type`, `price`, `status_id`, `created_at`) VALUES
 (1, 'NEX1154', 2, 'Nayeem', 'Lakshmipur', '01744579851', '123 123 1234', 'Osman Goni', 'Barishal', '01797147515', 1, 10, 0.024, 'Low', 125, 2, '2025-08-25 00:07:21'),
-(2, 'NEX2212', 9, 'Hares', 'netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 9, 8, 1.420, 'Low', 125, 3, '2025-08-25 01:17:27'),
+(2, 'NEX2212', 9, 'Hares', 'netrokona', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 9, 8, 1.420, 'Low', 125, 6, '2025-08-25 01:17:27'),
 (3, 'NEX1454', 5, 'Hares', 'mandari lakshmipur', '01341235456', '1451251452', 'Osman Goni', 'Dhaka', '01797147515', 5, 7, 0.485, 'Low', 125, 5, '2025-08-25 01:17:46'),
-(4, 'NEX304060', 10, 'sajid', 'barisal', '01341235456', '123 123 1234', 'konok', 'netrokona', '01797147515', 10, 9, 0.485, 'Low', 130, 1, '2025-08-29 12:20:00');
+(4, 'NEX304060', 10, 'sajid', 'barisal', '01341235456', '123 123 1234', 'konok', 'netrokona', '01797147515', 10, 9, 0.485, 'Low', 130, 3, '2025-08-29 12:20:00'),
+(9, 'NEX656202', 0, 'Masum Kabir', 'Rehan uddin bhuiyan Road, Lakshmipur sadar, lakshmipur.', '01715052430', '458 457 3636', 'Shifat Kabir', 'dhanmondi, Dhaka', '01548123666', 1, 8, 0.480, 'high', 170, 3, '2025-08-30 23:59:52'),
+(10, 'NEX553078', 0, 'Nishat', 'Lakshmipur sadar', '01744579851', '458 457 3636', 'Shifat Kabir', 'comilla sadar', '01797147515', 1, 7, 1.800, 'low', 170, 4, '2025-08-31 00:55:59');
 
 -- --------------------------------------------------------
 
@@ -134,15 +136,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `emp_id`, `first_name`, `last_name`, `email`, `password`, `contact`, `role`, `branch_id`, `created_at`) VALUES
-(1, 'admin', 'Mahidul', 'Kabir', 'mahidulkabir8@gmail.com', '123', '01706513542', 1, 0, '2025-08-30 01:36:31'),
-(2, 'nexemp001', 'Osman ', 'Goni', 'Osman@goni.com', '1234', '01718191101', 2, 1, '2025-08-28 23:41:09'),
-(3, 'nexemp002', 'Meshkat ', 'Kabir', 'meshkat@gmail.com', '123', '01718191101', 2, 3, '2025-08-28 23:41:18'),
-(5, 'nexemp003', 'casio', 'marma', 'marma@casio.com', '456', '0195124856', 2, 5, '2025-08-25 17:17:04'),
-(6, 'nexemp004', 'junayed', 'siddique', 'siddique@junayed.com', '123', '01658452236', 2, 6, '2025-08-25 17:19:03'),
-(7, 'nexemp005', 'bilashi', 'banu', 'banu@bilashi.com', '123', '01365458595', 2, 7, '2025-08-25 17:19:52'),
-(8, 'nexemp006', 'saiful', 'islam', 'islam@saiful.com', '123', '01426663314', 2, 8, '2025-08-25 17:20:38'),
-(9, 'nexemp009', 'shoriful ', 'hoq', 'hoq@shoriful.com', '123', '01456778887', 2, 9, '2025-08-28 23:39:18'),
-(10, 'nexemp010', 'miraj ', 'billah', 'billah@miraz.com', '123', '01645232344', 2, 10, '2025-08-28 23:39:34');
+(1, 'admin', 'Mahidul', 'Kabir', 'admin@nexdrop.com', '123', '01706513542', 1, 0, '2025-08-30 10:54:41'),
+(2, 'nexemp001', 'Osman ', 'Goni', 'osman@nexdrop.com', '123', '01718191101', 2, 1, '2025-08-30 10:54:41'),
+(3, 'nexemp002', 'Meshkat ', 'Kabir', 'meshkat@nexdrop.com', '123', '01718191101', 2, 3, '2025-08-30 10:54:41'),
+(5, 'nexemp003', 'casio', 'marma', 'casio@nexdrop.com', '123', '0195124856', 2, 5, '2025-08-30 10:54:41'),
+(6, 'nexemp004', 'junayed', 'siddique', 'junayed@nexdrop.com', '123', '01658452236', 2, 6, '2025-08-30 10:54:41'),
+(7, 'nexemp005', 'bilashi', 'banu', 'bilashi@nexdrop.com', '123', '01365458595', 2, 7, '2025-08-30 10:54:41'),
+(8, 'nexemp006', 'saiful', 'islam', 'saiful@nexdrop.com', '123', '01426663314', 2, 8, '2025-08-30 10:54:41'),
+(9, 'nexemp009', 'shoriful ', 'hoq', 'shoriful@nexdrop.com', '123', '01456778887', 2, 9, '2025-08-30 10:54:41'),
+(10, 'nexemp010', 'miraj ', 'billah', 'miraj@nexdrop.com', '123', '01645232344', 2, 10, '2025-08-30 10:54:41');
 
 --
 -- Indexes for dumped tables
@@ -186,7 +188,7 @@ ALTER TABLE `branches`
 -- AUTO_INCREMENT for table `parcels`
 --
 ALTER TABLE `parcels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `parcel_status`
