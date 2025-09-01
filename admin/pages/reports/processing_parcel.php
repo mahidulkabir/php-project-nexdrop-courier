@@ -4,12 +4,16 @@
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Order ID</th>
-        <th>Sender</th>
-        <th>Recipient</th>
-        <th>Status</th>
-        <th>Date</th>
+         <th>Order ID</th>
+          <th>Sender</th>
+          <th>Recipient</th>
+          <th>Sender Contact</th>
+          <th>Sender NID</th>
+          <th>Sender Branch</th>
+          <th>Recieving Branch</th>
+          <th>Current Status</th>
+          <th>Order Created at</th>
+          <th>Order Last Update</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +24,7 @@
             p.recipient_name,
             p.sender_contact,
             p.sender_nid,
+            p.status_id,
             DATE_FORMAT(p.created_at, '%d/%m/%Y || %H:%i:%s') AS created_at,
             DATE_FORMAT(p.updated_at, '%d/%m/%Y || %H:%i:%s') AS updated_at,
             fb.br_name AS from_branch,
@@ -32,6 +37,7 @@
          JOIN branches fb ON p.from_br_id = fb.id
          JOIN branches tb ON p.to_br_id = tb.id
          JOIN parcel_status ps ON p.status_id = ps.id
+         WHERE status_id in (1,2,3,4)
           ORDER BY created_at DESC";
       $result = mysqli_query($conn, $sql);
       while ($row = mysqli_fetch_assoc($result)) {
