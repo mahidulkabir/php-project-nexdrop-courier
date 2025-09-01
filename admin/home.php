@@ -129,7 +129,7 @@ body {
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar elevation-4" style="background: linear-gradient(135deg, #0d6efd, #00c6ff);">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <a href="home.php?page=11" class="brand-link">
         <img src="../assets/img/nfavicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" >
         <span class="brand-text font-weight-bold text-dark">NexDrop Courier</span>
       </a>

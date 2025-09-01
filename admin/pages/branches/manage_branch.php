@@ -4,8 +4,8 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>
+                <table class="table table-striped">
+                  <thead class="thead-dark">
                     <tr>
                       <th >Br Name</th>
                       <th>Road</th>
