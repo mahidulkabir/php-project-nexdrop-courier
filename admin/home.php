@@ -18,42 +18,42 @@ require('./configs/config.php');
 ?>
 <style>
   /* Sidebar menu items transparency */
-.main-sidebar .nav-sidebar .active {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #fff !important;
-  border-radius: 8px;
-  margin: 2px 8px;
-  transition: all 0.3s ease;
-}
+  .main-sidebar .nav-sidebar .active {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff !important;
+    border-radius: 8px;
+    margin: 2px 8px;
+    transition: all 0.3s ease;
+  }
 
-.main-sidebar .nav-sidebar .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  transform: scale(1.02);
-}
+  .main-sidebar .nav-sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.02);
+  }
 
-/* Body gradient - softer blue */
-body {
-  background: linear-gradient(135deg, #5a8bd6, #00c6ff);
-  min-height: 100vh;
-  background-attachment: fixed;
-}
+  /* Body gradient - softer blue */
+  body {
+    background: linear-gradient(135deg, #5a8bd6, #00c6ff);
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
 
-/* Content wrapper semi-transparent */
-.content-wrapper {
-  background-color: rgba(255, 255, 255, 0.9);
-}
+  /* Content wrapper semi-transparent */
+  .content-wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
 
-/* Navbar gradient - softer blue */
-.main-header.navbar {
-  background: linear-gradient(135deg, #5a8bd6, #00c6ff);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+  /* Navbar gradient - softer blue */
+  .main-header.navbar {
+    background: linear-gradient(135deg, #5a8bd6, #00c6ff);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
 
-.main-header.navbar .navbar-nav .nav-link,
-.main-header.navbar .user-panel .btn {
-  color: #fff;
-}
+  .main-header.navbar .navbar-nav .nav-link,
+  .main-header.navbar .user-panel .btn {
+    color: #fff;
+  }
 </style>
 
 
@@ -85,7 +85,7 @@ body {
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#admin_modal">
 
-              <img src="../assets/img/nfavicon.png" class="img-circle elevation-2" alt="User Image" > &nbsp;
+              <img src="../assets/img/nfavicon.png" class="img-circle elevation-2" alt="User Image"> &nbsp;
 
               <?php echo ($_SESSION['s_role'] == 1) ? 'Admin' :  'Employee'; ?>
               <!-- (Condition) ? (Statement1) : (Statement2); -->
@@ -106,14 +106,20 @@ body {
             <button type="button" class="btn-close" data-bs-dismiss="modal"> </button>
 
           </div>
-          <div class="modal-body">
+          <!-- <div class="modal-body">
 
             <button type="button" class="btn btn-sm btn-outline-danger mb-3" data-bs-dismiss="modal">Edit Profile</button> <br>
 
 
             <button type="button" class="btn btn-sm btn-outline-success" data-bs-dismiss="modal">View Profile</button>
 
+          </div> -->
+          <div class="modal-body">
+            <a href="home.php?page=18" class="btn btn-sm btn-outline-danger mb-3">Edit Profile</a> <br>
+            <button type="button" class="btn btn-sm btn-outline-success" data-bs-dismiss="modal">View Profile</button>
           </div>
+
+
           <div class="modal-footer">
             <form method="POST">
               <button type="submit" class="btn btn-sm btn-secondary" data-bs-dismiss="modal" name="logout">LogOut</button>
@@ -130,7 +136,7 @@ body {
     <aside class="main-sidebar elevation-4" style="background: linear-gradient(135deg, #0d6efd, #00c6ff);">
       <!-- Brand Logo -->
       <a href="home.php?page=11" class="brand-link">
-        <img src="../assets/img/nfavicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" >
+        <img src="../assets/img/nfavicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-bold text-dark">NexDrop Courier</span>
       </a>
 
@@ -246,10 +252,10 @@ body {
                 <i class="fa-solid fa-book nav-icon"></i>
                 <p>
                   Parcel Reports
-                 
+
                 </p>
               </a>
-              
+
             </li>
             <!-- fifth item of the list  -->
             <!-- Parcel Track SECTION  -->
