@@ -2,6 +2,9 @@
 deployment:
   tasks:
     - export DEPLOYDIR=/home/mahidulk/nexdrop.mahidulkabir.top
+    - echo "Deploying to $DEPLOYDIR"
+    - cd $DEPLOYDIR
     - /usr/bin/git checkout main
     - /usr/bin/git reset --hard origin/main
     - /usr/bin/git pull origin main
+    - echo "Deployment completed successfully!"
