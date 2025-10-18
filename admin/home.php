@@ -163,6 +163,35 @@ require('./configs/config.php');
               </a>
 
             </li>
+              <!-- fourth item of the list  -->
+
+            
+            <!-- Parcel Status SECTION  -->
+            <li class="nav-item menu-open <?php if ($_SESSION['s_role'] != 1) {
+                                            echo 'd-none';
+                                          } ?>">
+              <a href="home.php?page=13" class="nav-link active fw-semibold">
+                <i class="fa-solid fa-book nav-icon"></i>
+                <p>
+                  Parcel Reports
+
+                </p>
+              </a>
+
+            </li>
+
+
+            <!-- fifth item of the list  -->
+            <!-- Parcel Track SECTION  -->
+            <li class="nav-item menu-open">
+              <a href="home.php?page=12" class="nav-link fw-semibold  active">
+                <i class="fa-solid fa-magnifying-glass nav-icon"></i>
+                <p>
+                  Parcel Track
+                </p>
+              </a>
+
+            </li>s
             <!-- fist item of the list  -->
             <!-- Employee SECTION  -->
             <li class="nav-item menu-open <?php if ($_SESSION['s_role'] != 1) {
@@ -243,31 +272,7 @@ require('./configs/config.php');
                 </li>
               </ul>
             </li>
-            <!-- fourth item of the list  -->
-            <!-- Parcel Status SECTION  -->
-            <li class="nav-item menu-open <?php if ($_SESSION['s_role'] != 1) {
-                                            echo 'd-none';
-                                          } ?>">
-              <a href="home.php?page=13" class="nav-link active fw-semibold">
-                <i class="fa-solid fa-book nav-icon"></i>
-                <p>
-                  Parcel Reports
-
-                </p>
-              </a>
-
-            </li>
-            <!-- fifth item of the list  -->
-            <!-- Parcel Track SECTION  -->
-            <li class="nav-item menu-open">
-              <a href="home.php?page=12" class="nav-link fw-semibold  active">
-                <i class="fa-solid fa-magnifying-glass nav-icon"></i>
-                <p>
-                  Parcel Track
-                </p>
-              </a>
-
-            </li>
+          
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

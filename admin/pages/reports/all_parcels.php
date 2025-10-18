@@ -1,5 +1,5 @@
+<h2 class="mb-4">All Parcels</h2>
   <div class="container-fluid " id="print_report">
-    <h2 class="mb-4">All Parcels</h2>
 
     <table class="table table-bordered table-striped">
       <thead>
@@ -56,11 +56,17 @@
       </tbody>
     </table>
 
+<div class="d-flex gap-2 my-3 ">
+
+  <button onclick="printVoucher()" class="btn btn-dark rounded-3 px-4 my-2">
+    <i class="bi bi-printer"></i> Print Report
+  </button>
+  <button type="button" class="btn btn-primary rounded-3 px-4 my-2" onclick="history.back()">
+<i class="bi bi-arrow-left"></i> Go Back
+</button>
+</div>
 
   </div>
-  <button onclick="printVoucher()" class="btn btn-dark">
-    <i class="bi bi-printer"></i> Print Voucher
-  </button>
   <script>
     function printVoucher() {
       var printContents = document.getElementById('print_report').innerHTML;
